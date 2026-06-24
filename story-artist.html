@@ -497,11 +497,36 @@
       .about__body { max-width: none; }
     }
 
+    @media (max-width: 768px) {
+      .menu-panel__wordmark-col { display: none; }
+      .menu-panel::after { display: none; }
+      .menu-panel__nav { padding-top: 16vh; padding-left: 28px; padding-right: 24px; }
+      .menu-panel__link { font-size: 26px; }
+      .faq__big-heading { font-size: 52px; }
+      .site-footer { padding-left: 24px; padding-right: 24px; }
+      .site-footer__row { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .site-footer__links { flex-wrap: wrap; gap: 14px; }
+    }
+
     @media (max-width: 600px) {
       .nav { padding: 0 24px; }
       .about { padding-left: 24px; padding-right: 24px; }
       .faq { padding-left: 24px; padding-right: 24px; }
-      .site-footer__row { flex-direction: column; align-items: flex-start; gap: clamp(16px, 2vh, 24px); }
+    }
+
+    @media (max-width: 430px) {
+      .faq__big-heading { font-size: 40px; }
+      .about { padding-left: 16px; padding-right: 16px; }
+      .faq { padding-left: 16px; padding-right: 16px; }
+      .site-footer { padding-left: 16px; padding-right: 16px; }
+    }
+
+    @media (max-width: 375px) {
+      .faq__big-heading { font-size: 34px; }
+      .about__headline { font-size: 18px; }
+      .faq__question { font-size: 18px; }
+      .about__heading-group { transform: translateY(-60px); }
+      .site-footer__links { gap: 12px; }
     }
 
   

@@ -178,10 +178,32 @@
       color: rgba(245, 239, 230, 0.55);
     }
 
+    @media (max-width: 768px) {
+      .legal-headline { font-size: 30px; }
+      .site-footer__row { flex-direction: column; align-items: flex-start; gap: clamp(16px, 2vh, 24px); }
+      .site-footer__links { flex-wrap: wrap; gap: 14px; }
+    }
+
     @media (max-width: 600px) {
       .legal-page { padding-left: 24px; padding-right: 24px; }
       .site-footer { padding-left: 24px; padding-right: 24px; }
-      .site-footer__row { flex-direction: column; align-items: flex-start; gap: clamp(16px, 2vh, 24px); }
+    }
+
+    @media (max-width: 430px) {
+      .contact-nav { padding: 0 20px; height: 60px; }
+      .legal-headline { font-size: 26px; }
+      .legal-page { padding-left: 20px; padding-right: 20px; }
+      .site-footer { padding-left: 20px; padding-right: 20px; }
+    }
+
+    @media (max-width: 375px) {
+      .contact-nav { padding: 0 16px; }
+      .legal-headline { font-size: 22px; }
+      .legal-page { padding-left: 16px; padding-right: 16px; }
+      .legal-section__body { word-break: break-word; overflow-wrap: break-word; }
+      .legal-section__body a { word-break: break-all; }
+      .site-footer { padding-left: 16px; padding-right: 16px; }
+      .site-footer__links { gap: 12px; }
     }
 
   

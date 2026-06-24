@@ -1925,6 +1925,38 @@
       color: rgba(28,23,20,0.42);
     }
 
+    @media (max-width: 768px) {
+      .menu-panel__wordmark-col { display: none; }
+      .menu-panel::after { display: none; }
+      .menu-panel__nav { padding-top: 16vh; padding-left: 28px; padding-right: 24px; }
+      .menu-panel__link { font-size: 26px; }
+      .moment-chapter__testimonial-header { left: 0; }
+      .moment-chapter__testimonial-header::before { display: none; }
+      .moment-chapter__quote { top: 0; }
+      .testimonial-bridge .moment-chapter__quote { top: 0; }
+      .inquiry { padding-left: 20px; padding-right: 20px; }
+      .site-footer { padding-left: 20px; padding-right: 20px; }
+      .site-footer__links { flex-wrap: wrap; gap: 14px; }
+    }
+
+    @media (max-width: 430px) {
+      .editorial__headline { font-size: 26px; }
+      .artist__headline { font-size: 20px; }
+      .story__name { font-size: 20px; }
+      .inquiry__headline { font-size: 22px; }
+      .inquiry { padding-left: 16px; padding-right: 16px; }
+      .site-footer { padding-left: 16px; padding-right: 16px; }
+    }
+
+    @media (max-width: 375px) {
+      .hero__headline { font-size: 26px; }
+      .editorial__headline { font-size: 22px; }
+      .artist__headline { font-size: 18px; }
+      .story__name { font-size: 18px; }
+      .inquiry__headline { font-size: 20px; }
+      .site-footer__links { gap: 12px; }
+    }
+
   </style>
 </head>
 <body>

@@ -401,7 +401,29 @@
     /* ── Mobile ───────────────────────────────────────── */
     @media (max-width: 767px) {
       .nav { padding: 0 24px; }
+      .story-hero__headline { font-size: 48px; }
+      .menu-panel__nav { padding-top: 18vh; }
+      .site-footer { padding-left: 24px; padding-right: 24px; }
       .site-footer__row { flex-direction: column; align-items: flex-start; gap: clamp(16px, 2vh, 24px); }
+      .site-footer__links { flex-wrap: wrap; gap: 14px; }
+    }
+
+    @media (max-width: 430px) {
+      .story-hero__headline { font-size: 38px; }
+      .gallery-grid { padding: 0 16px; }
+      .site-footer { padding-left: 20px; padding-right: 20px; }
+    }
+
+    @media (max-width: 375px) {
+      .story-hero__headline { font-size: 32px; }
+      .story-hero__body { font-size: 12px; }
+      .gallery-grid { grid-template-columns: 1fr; padding: 0 20px; }
+      .site-footer { padding-left: 16px; padding-right: 16px; }
+      .site-footer__links { gap: 12px; }
+    }
+
+    @media (max-width: 320px) {
+      .story-hero__headline { font-size: 28px; }
     }
 
   

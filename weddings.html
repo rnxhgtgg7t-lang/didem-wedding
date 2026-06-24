@@ -542,9 +542,40 @@
       .wedding-section__body { max-width: none; }
     }
 
+    @media (max-width: 768px) {
+      .menu-panel__wordmark-col { display: none; }
+      .menu-panel::after { display: none; }
+      .menu-panel__nav { padding-top: 16vh; padding-left: 28px; padding-right: 24px; }
+      .menu-panel__link { font-size: 26px; }
+      .hero__heading { font-size: 44px; }
+      .wedding-section__headline { font-size: 34px; }
+      .wedding-section__inner { padding-left: 20px; padding-right: 20px; }
+      .site-footer { padding-left: 20px; padding-right: 20px; }
+      .site-footer__row { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .site-footer__links { flex-wrap: wrap; gap: 14px; }
+    }
+
     @media (max-width: 600px) {
       .nav { padding: 0 24px; }
-      .site-footer__row { flex-direction: column; align-items: flex-start; gap: clamp(16px, 2vh, 24px); }
+    }
+
+    @media (max-width: 430px) {
+      .hero__heading { font-size: 36px; }
+      .wedding-section__headline { font-size: 28px; }
+      .wedding-section__inner { padding-left: 16px; padding-right: 16px; }
+      .closing__quote { font-size: 22px; }
+      .site-footer { padding-left: 16px; padding-right: 16px; }
+    }
+
+    @media (max-width: 375px) {
+      .hero__heading { font-size: 30px; }
+      .wedding-section__headline { font-size: 24px; }
+      .site-footer__links { gap: 12px; }
+    }
+
+    @media (max-width: 320px) {
+      .hero__heading { font-size: 26px; }
+      .wedding-section__headline { font-size: 20px; }
     }
 
   
