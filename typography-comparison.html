@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Typography Directions — Didem Kanteper</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=EB+Garamond:ital,wght@0,400;1,400&family=Jost:ital,wght@0,200;0,300;0,400;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --paper: #F5EFE6;
+      --ink:   #1C1714;
+      --accent: #9A8067;
+      --dark:  #262D25;
+    }
+
+    body {
+      background: #111;
+      font-family: 'Jost', sans-serif;
+    }
+
+    /* ── Page header ──────────────────────────────────── */
+    .page-header {
+      background: #0D0D0D;
+      padding: 28px 40px;
+      display: flex;
+      align-items: baseline;
+      gap: 32px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .page-header__title {
+      font-weight: 200;
+      font-size: 10px;
+      letter-spacing: 0.40em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+    }
+
+    .page-header__note {
+      font-weight: 200;
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.18);
+    }
+
+    /* ── Comparison grid ──────────────────────────────── */
+    .comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .version {
+      border-right: 1px solid rgba(255,255,255,0.06);
+    }
+    .version:last-child { border-right: none; }
+
+    /* ── Column header (sticky) ───────────────────────── */
+    .version__header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: #0D0D0D;
+      padding: 18px 32px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .version__tag {
+      font-weight: 200;
+      font-size: 8px;
+      letter-spacing: 0.50em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .version__name {
+      font-weight: 200;
+      font-size: 11px;
+      letter-spacing: 0.10em;
+      color: rgba(255,255,255,0.50);
+      margin-top: 5px;
+    }
+
+    /* ── Specimen block ───────────────────────────────── */
+    .specimen {
+      padding: 36px 32px 32px;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      position: relative;
+    }
+
+    .specimen--dark  { background: var(--dark); }
+    .specimen--cream { background: var(--paper); }
+
+    .specimen__label {
+      font-weight: 200;
+      font-size: 8px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: rgba(154,128,103,0.50);
+      margin-bottom: 24px;
+    }
+
+    /* annotation strip */
+    .anno {
+      margin-top: 20px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(154,128,103,0.15);
+      font-weight: 200;
+      font-size: 8px;
+      letter-spacing: 0.14em;
+      line-height: 1.7;
+      color: rgba(154,128,103,0.45);
+    }
+
+
+    /* ══════════════════════════════════════════════════
+       VERSION A — LUXURY EDITORIAL
+       High contrast · fashion magazine · severe elegance
+    ══════════════════════════════════════════════════ */
+
+    /* Nav label */
+    .a-label {
+      font-family: 'Jost', sans-serif;
+      font-weight: 200;
+      font-size: 8px;
+      letter-spacing: 0.55em;
+      text-transform: uppercase;
+      color: rgba(245,239,230,0.38);
+      display: block;
+      margin-bottom: 18px;
+    }
+
+    /* Section label */
+    .a-section-label {
+      font-family: 'Jost', sans-serif;
+      font-weight: 200;
+      font-size: 8px;
+      letter-spacing: 0.55em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 20px;
+    }
+
+    /* Display / hero headline */
+    .a-hero {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-style: normal;
+      font-size: clamp(44px, 4.8vw, 68px);
+      line-height: 0.96;
+      letter-spacing: -0.025em;
+      color: var(--paper);
+    }
+
+    /* Section headline */
+    .a-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-style: normal;
+      font-size: clamp(28px, 3.2vw, 46px);
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      color: var(--paper);
+      margin-top: 4px;
+    }
+
+    /* Body text */
+    .a-body {
+      font-family: 'Jost', sans-serif;
+      font-weight: 200;
+      font-size: 10px;
+      line-height: 2.2;
+      letter-spacing: 0.13em;
+      color: var(--ink);
+    }
+
+    /* CTA */
+    .a-cta {
+      display: inline-block;
+      font-family: 'Jost', sans-serif;
+      font-weight: 200;
+      font-size: 8px;
+      letter-spacing: 0.55em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      margin-top: 30px;
+    }
+
+    /* Testimonial */
+    .a-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(15px, 1.7vw, 20px);
+      line-height: 1.52;
+      letter-spacing: -0.005em;
+      color: rgba(245,239,230,0.80);
+    }
+
+    /* Footer statement */
+    .a-footer {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-style: normal;
+      font-size: clamp(17px, 2.0vw, 28px);
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
+      color: rgba(245,239,230,0.82);
+    }
+
+
+    /* ══════════════════════════════════════════════════
+       VERSION B — TIMELESS EUROPEAN
+       Romantic · classical · flowing warmth
+    ══════════════════════════════════════════════════ */
+
+    .b-label {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 10px;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: rgba(245,239,230,0.38);
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .b-section-label {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 10px;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 18px;
+    }
+
+    .b-hero {
+      font-family: 'EB Garamond', serif;
+      font-weight: 400;
+      font-style: italic;
+      font-size: clamp(38px, 4.2vw, 60px);
+      line-height: 1.15;
+      letter-spacing: 0.01em;
+      color: var(--paper);
+    }
+
+    .b-headline {
+      font-family: 'EB Garamond', serif;
+      font-weight: 400;
+      font-style: italic;
+      font-size: clamp(24px, 2.7vw, 40px);
+      line-height: 1.20;
+      letter-spacing: 0.01em;
+      color: var(--paper);
+      margin-top: 4px;
+    }
+
+    .b-body {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 13px;
+      line-height: 1.80;
+      letter-spacing: 0.015em;
+      color: rgba(28,23,20,0.80);
+    }
+
+    .b-cta {
+      display: inline-block;
+      font-family: 'EB Garamond', serif;
+      font-weight: 400;
+      font-style: italic;
+      font-size: 17px;
+      letter-spacing: 0.03em;
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 5px;
+      text-decoration-thickness: 1px;
+      text-decoration-color: rgba(154,128,103,0.35);
+      margin-top: 26px;
+    }
+
+    .b-quote {
+      font-family: 'EB Garamond', serif;
+      font-weight: 400;
+      font-style: italic;
+      font-size: clamp(15px, 1.6vw, 20px);
+      line-height: 1.68;
+      letter-spacing: 0.005em;
+      color: rgba(245,239,230,0.85);
+    }
+
+    .b-footer {
+      font-family: 'EB Garamond', serif;
+      font-weight: 400;
+      font-style: italic;
+      font-size: clamp(18px, 2.2vw, 34px);
+      line-height: 1.2;
+      letter-spacing: 0.01em;
+      color: rgba(245,239,230,0.82);
+    }
+
+
+    /* ══════════════════════════════════════════════════
+       VERSION C — MODERN MINIMAL
+       Clean · geometric · contemporary premium
+    ══════════════════════════════════════════════════ */
+
+    .c-label {
+      font-family: 'Jost', sans-serif;
+      font-weight: 200;
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(245,239,230,0.28);
+      display: block;
+      margin-bottom: 18px;
+    }
+
+    .c-section-label {
+      font-family: 'Jost', sans-serif;
+      font-weight: 200;
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(154,128,103,0.55);
+      display: block;
+      margin-bottom: 18px;
+    }
+
+    .c-hero {
+      font-family: 'Jost', sans-serif;
+      font-weight: 200;
+      font-size: clamp(36px, 4.0vw, 58px);
+      line-height: 1.06;
+      letter-spacing: -0.03em;
+      color: var(--paper);
+    }
+
+    .c-headline {
+      font-family: 'Jost', sans-serif;
+      font-weight: 200;
+      font-size: clamp(22px, 2.5vw, 36px);
+      line-height: 1.10;
+      letter-spacing: -0.025em;
+      color: var(--paper);
+      margin-top: 4px;
+    }
+
+    .c-body {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 12px;
+      line-height: 1.72;
+      letter-spacing: 0.01em;
+      color: rgba(28,23,20,0.68);
+    }
+
+    .c-cta {
+      display: inline-block;
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: lowercase;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(154,128,103,0.35);
+      padding-bottom: 3px;
+      margin-top: 26px;
+    }
+
+    .c-quote {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: clamp(12px, 1.3vw, 16px);
+      line-height: 1.72;
+      letter-spacing: 0.01em;
+      color: rgba(245,239,230,0.65);
+    }
+
+    .c-footer {
+      font-family: 'Jost', sans-serif;
+      font-weight: 200;
+      font-size: clamp(15px, 1.8vw, 26px);
+      line-height: 1.12;
+      letter-spacing: -0.025em;
+      color: rgba(245,239,230,0.82);
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="page-header">
+    <p class="page-header__title">Didem Kanteper — Typography Directions</p>
+    <p class="page-header__note">Layout · colors · images unchanged — typography only</p>
+  </div>
+
+  <div class="comparison">
+
+    <!-- ════════════════════════════════════════
+         VERSION A — LUXURY EDITORIAL
+    ════════════════════════════════════════ -->
+    <div class="version">
+      <div class="version__header">
+        <p class="version__tag">Version A</p>
+        <p class="version__name">Luxury Editorial</p>
+      </div>
+
+      <!-- Hero -->
+      <div class="specimen specimen--dark">
+        <p class="specimen__label">Hero</p>
+        <span class="a-label">Wedding Photography · Didem Kanteper</span>
+        <h1 class="a-hero">Before time<br>changes it.</h1>
+        <p class="anno">Cormorant Garamond 300 upright · −0.025em · line-height 0.96<br>Nav: Jost 200 · 0.55em tracking · 8px</p>
+      </div>
+
+      <!-- Section label + headline -->
+      <div class="specimen specimen--dark">
+        <p class="specimen__label">Section Label + Headline</p>
+        <span class="a-section-label">Editorial Wedding Storytelling</span>
+        <h2 class="a-headline">A portrait<br>beyond the<br>wedding day.</h2>
+        <p class="anno">Cormorant Garamond 300 · uppercase · −0.02em<br>Label: Jost 200 · 0.55em · 8px</p>
+      </div>
+
+      <!-- Body + CTA -->
+      <div class="specimen specimen--cream">
+        <p class="specimen__label">Body Text + CTA</p>
+        <p class="a-body">Jede Hochzeit erzählt mehr als das, was sichtbar ist. Zwischen Licht, Bewegung, Blicken und Details entsteht die Atmosphäre, die einen Tag unvergesslich macht.</p>
+        <a href="#" class="a-cta">Inquire Now</a>
+        <p class="anno" style="border-top-color:rgba(28,23,20,0.12); color:rgba(28,23,20,0.30);">Body: Jost 200 · 10px · 0.13em · line-height 2.2<br>CTA: Jost 200 · 0.55em · 8px · uppercase</p>
+      </div>
+
+      <!-- Testimonial -->
+      <div class="specimen specimen--dark">
+        <p class="specimen__label">Testimonial Quote</p>
+        <p class="a-quote">„Du hast es geschafft, all die großen Emotionen und kleinen, kostbaren Augenblicke so authentisch und ästhetisch festzuhalten, dass wir beim Anschauen der Bilder jedes Mal wieder mitten in diesem Tag sind."<br><br>— Aycan &amp; Ergin</p>
+        <p class="anno">Cormorant Garamond 300 italic · −0.005em · line-height 1.52</p>
+      </div>
+
+      <!-- Footer statement -->
+      <div class="specimen specimen--dark">
+        <p class="specimen__label">Footer Statement</p>
+        <p class="a-footer">for the ONES who want to REMEMBER how it FELT.</p>
+        <p class="anno">Cormorant Garamond 300 upright · uppercase · −0.01em</p>
+      </div>
+    </div>
+
+
+    <!-- ════════════════════════════════════════
+         VERSION B — TIMELESS EUROPEAN
+    ════════════════════════════════════════ -->
+    <div class="version">
+      <div class="version__header">
+        <p class="version__tag">Version B</p>
+        <p class="version__name">Timeless European</p>
+      </div>
+
+      <!-- Hero -->
+      <div class="specimen specimen--dark">
+        <p class="specimen__label">Hero</p>
+        <span class="b-label">Wedding Photography · Didem Kanteper</span>
+        <h1 class="b-hero">Before time changes it.</h1>
+        <p class="anno">EB Garamond 400 italic · +0.01em · line-height 1.15<br>Nav: Jost 300 · 0.26em · 10px</p>
+      </div>
+
+      <!-- Section label + headline -->
+      <div class="specimen specimen--dark">
+        <p class="specimen__label">Section Label + Headline</p>
+        <span class="b-section-label">Editorial Wedding Storytelling</span>
+        <h2 class="b-headline">A portrait beyond the wedding day.</h2>
+        <p class="anno">EB Garamond 400 italic · +0.01em · line-height 1.20<br>Label: Jost 300 · 0.26em · 10px</p>
+      </div>
+
+      <!-- Body + CTA -->
+      <div class="specimen specimen--cream">
+        <p class="specimen__label">Body Text + CTA</p>
+        <p class="b-body">Jede Hochzeit erzählt mehr als das, was sichtbar ist. Zwischen Licht, Bewegung, Blicken und Details entsteht die Atmosphäre, die einen Tag unvergesslich macht.</p>
+        <a href="#" class="b-cta">Inquire Now</a>
+        <p class="anno" style="border-top-color:rgba(28,23,20,0.12); color:rgba(28,23,20,0.30);">Body: Jost 300 · 13px · 0.015em · line-height 1.80<br>CTA: EB Garamond 400 italic · underline · 17px</p>
+      </div>
+
+      <!-- Testimonial -->
+      <div class="specimen specimen--dark">
+        <p class="specimen__label">Testimonial Quote</p>
+        <p class="b-quote">„Du hast es geschafft, all die großen Emotionen und kleinen, kostbaren Augenblicke so authentisch und ästhetisch festzuhalten, dass wir beim Anschauen der Bilder jedes Mal wieder mitten in diesem Tag sind."<br><br>— Aycan &amp; Ergin</p>
+        <p class="anno">EB Garamond 400 italic · +0.005em · line-height 1.68</p>
+      </div>
+
+      <!-- Footer statement -->
+      <div class="specimen specimen--dark">
+        <p class="specimen__label">Footer Statement</p>
+        <p class="b-footer">for the ones who want to remember how it felt.</p>
+        <p class="anno">EB Garamond 400 italic · +0.01em · sentence case</p>
+      </div>
+    </div>
+
+
+    <!-- ════════════════════════════════════════
+         VERSION C — MODERN MINIMAL
+    ════════════════════════════════════════ -->
+    <div class="version">
+      <div class="version__header">
+        <p class="version__tag">Version C</p>
+        <p class="version__name">Modern Minimal</p>
+      </div>
+
+      <!-- Hero -->
+      <div class="specimen specimen--dark">
+        <p class="specimen__label">Hero</p>
+        <span class="c-label">Wedding Photography · Didem Kanteper</span>
+        <h1 class="c-hero">Before time changes it.</h1>
+        <p class="anno">Jost 200 · −0.03em · line-height 1.06<br>Nav: Jost 200 · 0.22em · 9px</p>
+      </div>
+
+      <!-- Section label + headline -->
+      <div class="specimen specimen--dark">
+        <p class="specimen__label">Section Label + Headline</p>
+        <span class="c-section-label">Editorial Wedding Storytelling</span>
+        <h2 class="c-headline">A portrait beyond the wedding day.</h2>
+        <p class="anno">Jost 200 · −0.025em · line-height 1.10<br>Label: Jost 200 · 0.22em · 9px</p>
+      </div>
+
+      <!-- Body + CTA -->
+      <div class="specimen specimen--cream">
+        <p class="specimen__label">Body Text + CTA</p>
+        <p class="c-body">Jede Hochzeit erzählt mehr als das, was sichtbar ist. Zwischen Licht, Bewegung, Blicken und Details entsteht die Atmosphäre, die einen Tag unvergesslich macht.</p>
+        <a href="#" class="c-cta">inquire now</a>
+        <p class="anno" style="border-top-color:rgba(28,23,20,0.12); color:rgba(28,23,20,0.30);">Body: Jost 300 · 12px · 0.01em · line-height 1.72<br>CTA: Jost 300 · 0.18em · 10px · border-bottom</p>
+      </div>
+
+      <!-- Testimonial -->
+      <div class="specimen specimen--dark">
+        <p class="specimen__label">Testimonial Quote</p>
+        <p class="c-quote">„Du hast es geschafft, all die großen Emotionen und kleinen, kostbaren Augenblicke so authentisch und ästhetisch festzuhalten, dass wir beim Anschauen der Bilder jedes Mal wieder mitten in diesem Tag sind."<br><br>— Aycan &amp; Ergin</p>
+        <p class="anno">Jost 300 · 0.01em · line-height 1.72</p>
+      </div>
+
+      <!-- Footer statement -->
+      <div class="specimen specimen--dark">
+        <p class="specimen__label">Footer Statement</p>
+        <p class="c-footer">for the ones who want to remember how it felt</p>
+        <p class="anno">Jost 200 · −0.025em · lowercase · no period</p>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Sheet — Aycan &amp; Ergin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #262D25;
+      color: #F5EFE6;
+      font-family: 'Jost', sans-serif;
+      padding: 48px clamp(20px, 4vw, 64px) 80px;
+      -webkit-font-smoothing: antialiased;
+    }
+    .sheet-title {
+      font-weight: 200;
+      font-size: 12px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: rgba(245, 239, 230, 0.6);
+      margin-bottom: 8px;
+    }
+    .sheet-sub {
+      font-weight: 200;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      color: rgba(245, 239, 230, 0.4);
+      margin-bottom: 40px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 28px;
+    }
+    .cell { display: flex; flex-direction: column; }
+    .cell img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      background: #1a1f19;
+    }
+    .cell__meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-top: 10px;
+      gap: 12px;
+    }
+    .cell__num {
+      font-weight: 400;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      color: #9A8067;
+    }
+    .cell__name {
+      font-weight: 300;
+      font-size: 11px;
+      letter-spacing: 0.04em;
+      color: rgba(245, 239, 230, 0.82);
+      text-align: right;
+      word-break: break-all;
+    }
+    .dupe { color: rgba(245, 239, 230, 0.45); }
+  </style>
+</head>
+<body>
+  <p class="sheet-title">Contact Sheet — Aycan &amp; Ergin</p>
+  <p class="sheet-sub">15 images · hero (DSC01491.jpg) excluded · filename order</p>
+
+  <div class="grid">
+    <div class="cell"><img src="Aycan & Ergin/DSC00027 (1).jpg" alt="" loading="lazy"><div class="cell__meta"><span class="cell__num">01</span><span class="cell__name">DSC00027 (1).jpg</span></div></div>
+    <div class="cell"><img src="Aycan & Ergin/DSC00027.jpg" alt="" loading="lazy"><div class="cell__meta"><span class="cell__num">02</span><span class="cell__name">DSC00027.jpg</span></div></div>
+    <div class="cell"><img src="Aycan & Ergin/DSC00176.jpg" alt="" loading="lazy"><div class="cell__meta"><span class="cell__num">03</span><span class="cell__name">DSC00176.jpg</span></div></div>
+    <div class="cell"><img src="Aycan & Ergin/DSC00394.jpg" alt="" loading="lazy"><div class="cell__meta"><span class="cell__num">04</span><span class="cell__name">DSC00394.jpg</span></div></div>
+    <div class="cell"><img src="Aycan & Ergin/DSC00823 (1).jpg" alt="" loading="lazy"><div class="cell__meta"><span class="cell__num">05</span><span class="cell__name">DSC00823 (1).jpg</span></div></div>
+    <div class="cell"><img src="Aycan & Ergin/DSC00823.jpg" alt="" loading="lazy"><div class="cell__meta"><span class="cell__num">06</span><span class="cell__name">DSC00823.jpg</span></div></div>
+    <div class="cell"><img src="Aycan & Ergin/DSC01071.jpg" alt="" loading="lazy"><div class="cell__meta"><span class="cell__num">07</span><span class="cell__name">DSC01071.jpg</span></div></div>
+    <div class="cell"><img src="Aycan & Ergin/DSC01081.jpg" alt="" loading="lazy"><div class="cell__meta"><span class="cell__num">08</span><span class="cell__name">DSC01081.jpg</span></div></div>
+    <div class="cell"><img src="Aycan & Ergin/DSC01096.jpg" alt="" loading="lazy"><div class="cell__meta"><span class="cell__num">09</span><span class="cell__name">DSC01096.jpg</span></div></div>
+    <div class="cell"><img src="Aycan & Ergin/DSC01491 (1).jpg" alt="" loading="lazy"><div class="cell__meta"><span class="cell__num">10</span><span class="cell__name">DSC01491 (1).jpg</span></div></div>
+    <div class="cell"><img src="Aycan & Ergin/DSC01635.jpg" alt="" loading="lazy"><div class="cell__meta"><span class="cell__num">11</span><span class="cell__name">DSC01635.jpg</span></div></div>
+    <div class="cell"><img src="Aycan & Ergin/DSC01672.jpg" alt="" loading="lazy"><div class="cell__meta"><span class="cell__num">12</span><span class="cell__name">DSC01672.jpg</span></div></div>
+    <div class="cell"><img src="Aycan & Ergin/DSC01710.jpg" alt="" loading="lazy"><div class="cell__meta"><span class="cell__num">13</span><span class="cell__name">DSC01710.jpg</span></div></div>
+    <div class="cell"><img src="Aycan & Ergin/DSC01769.jpg" alt="" loading="lazy"><div class="cell__meta"><span class="cell__num">14</span><span class="cell__name">DSC01769.jpg</span></div></div>
+    <div class="cell"><img src="Aycan & Ergin/DSC03613.jpg" alt="" loading="lazy"><div class="cell__meta"><span class="cell__num">15</span><span class="cell__name">DSC03613.jpg</span></div></div>
+  </div>
+</body>
+</html>

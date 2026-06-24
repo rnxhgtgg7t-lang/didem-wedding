@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Didem Kanteper — Hochzeitsfotografie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+  <style>
+
+    /* ─── RESET ──────────────────────────────────────────────────── */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    figure {
+      margin: 0;
+    }
+
+    img, video {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    /* ─── TOKENS ─────────────────────────────────────────────────── */
+    :root {
+      --bg:    #F8F8F6;
+      --ink:   #111110;
+      --rule:  rgba(17, 17, 16, 0.10);
+    }
+
+    /* ─── BASE ───────────────────────────────────────────────────── */
+    html {
+      background: var(--bg);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'EB Garamond', Georgia, serif;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAVIGATION ─────────────────────────────────────────────── */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(28px, 6vw, 96px);
+      height: 52px;
+      background: var(--bg);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .nav__wordmark {
+      font-size: 13px;
+      font-weight: 400;
+      font-style: normal;
+      letter-spacing: 0.07em;
+      color: var(--ink);
+    }
+
+    .nav__menu {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav__menu a {
+      font-size: 11.5px;
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: 0.05em;
+      color: rgba(17, 17, 16, 0.44);
+      transition: color 0.35s ease;
+    }
+
+    .nav__menu a:hover {
+      color: var(--ink);
+    }
+
+    /* ─── OPENING — TITLE PAGE ────────────────────────────────────── */
+    .opening {
+      padding-top: calc(52px + clamp(96px, 15vh, 180px));
+      padding-bottom: clamp(96px, 15vh, 180px);
+      padding-left: clamp(28px, 6vw, 96px);
+      padding-right: clamp(28px, 6vw, 96px);
+    }
+
+    .opening__eyebrow {
+      display: block;
+      font-size: 10.5px;
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: 0.20em;
+      color: rgba(17, 17, 16, 0.36);
+      margin-bottom: clamp(28px, 4.5vh, 52px);
+    }
+
+    .opening__title {
+      font-size: clamp(40px, 5.5vw, 74px);
+      font-weight: 400;
+      font-style: normal;
+      line-height: 1.08;
+      letter-spacing: 0.01em;
+      color: var(--ink);
+      margin-bottom: clamp(24px, 3.5vh, 40px);
+    }
+
+    .opening__line {
+      font-size: clamp(15px, 1.6vw, 20px);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.55;
+      letter-spacing: 0.015em;
+      color: rgba(17, 17, 16, 0.50);
+      max-width: 440px;
+    }
+
+    /* ─── PLATE SYSTEM ───────────────────────────────────────────── */
+    /*
+       Images are presented at their natural aspect ratios.
+       width: auto on img means the browser respects the original crop.
+       Each plate class sets only the horizontal footprint.
+    */
+
+    .plate {
+      position: relative;
+    }
+
+    .plate img,
+    .plate video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Edge to edge — the most arresting scale */
+    .plate--full {
+      width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    /* Wide, almost full — primary scale */
+    .plate--wide {
+      width: 84%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Standard — the essay image */
+    .plate--standard {
+      width: 66%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Small — the intimate detail */
+    .plate--intimate {
+      width: 46%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Offset — not centered; gravitates to one side */
+    .plate--pull-left {
+      width: 62%;
+      margin-left: clamp(28px, 8vw, 120px);
+      margin-right: auto;
+    }
+
+    .plate--pull-right {
+      width: 62%;
+      margin-right: clamp(28px, 8vw, 120px);
+      margin-left: auto;
+    }
+
+    /* ─── SPACING TOKENS ─────────────────────────────────────────── */
+    .gap-xl  { height: clamp(140px, 20vh, 240px); }
+    .gap-lg  { height: clamp(96px,  14vh, 168px); }
+    .gap-md  { height: clamp(64px,  9vh,  120px); }
+    .gap-sm  { height: clamp(36px,  5vh,   72px); }
+    .gap-xs  { height: clamp(20px,  2.5vh, 36px); }
+
+    /* ─── HAIRLINES ──────────────────────────────────────────────── */
+    /* Structural pauses — not decorative dividers */
+
+    .rule {
+      width: clamp(48px, 6vw, 80px);
+      height: 1px;
+      background: rgba(17, 17, 16, 0.12);
+      margin: 0 auto;
+    }
+
+    .rule--left {
+      margin-left: clamp(28px, 6vw, 96px);
+      margin-right: 0;
+    }
+
+    /* ─── STATEMENT ──────────────────────────────────────────────── */
+    .statement {
+      padding: 0 clamp(28px, 6vw, 96px);
+      text-align: center;
+    }
+
+    .statement__text {
+      font-size: clamp(19px, 2.4vw, 30px);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.45;
+      letter-spacing: 0.01em;
+      color: var(--ink);
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    /* ─── STORY SECTION ──────────────────────────────────────────── */
+    .story__head {
+      padding: 0 clamp(28px, 6vw, 96px);
+    }
+
+    .story__meta {
+      display: block;
+      font-size: 10px;
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: 0.22em;
+      color: rgba(17, 17, 16, 0.34);
+      margin-bottom: clamp(14px, 2vh, 22px);
+    }
+
+    .story__name {
+      font-size: clamp(28px, 3.6vw, 52px);
+      font-weight: 400;
+      font-style: normal;
+      line-height: 1.08;
+      letter-spacing: 0.01em;
+      color: var(--ink);
+    }
+
+    .story__body {
+      padding: 0 clamp(28px, 6vw, 96px);
+      max-width: calc(520px + clamp(28px, 6vw, 96px));
+    }
+
+    .story__body p {
+      font-size: clamp(13px, 1.05vw, 14.5px);
+      font-weight: 400;
+      font-style: normal;
+      line-height: 1.95;
+      letter-spacing: 0.015em;
+      color: rgba(17, 17, 16, 0.58);
+    }
+
+    .story__body p + p {
+      margin-top: 1em;
+    }
+
+    .story__link {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: 0.14em;
+      color: rgba(17, 17, 16, 0.40);
+      padding: 0 clamp(28px, 6vw, 96px);
+      transition: color 0.35s ease;
+    }
+
+    .story__link:hover {
+      color: var(--ink);
+    }
+
+    /* ─── TESTIMONIAL ────────────────────────────────────────────── */
+    .testimonial {
+      padding: 0 clamp(28px, 6vw, 96px);
+      max-width: calc(480px + clamp(28px, 6vw, 96px));
+    }
+
+    .testimonial blockquote {
+      font-size: clamp(13px, 1.05vw, 14.5px);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.92;
+      letter-spacing: 0.01em;
+      color: rgba(17, 17, 16, 0.54);
+    }
+
+    .testimonial cite {
+      display: block;
+      font-size: 10px;
+      font-weight: 400;
+      font-style: normal;
+      letter-spacing: 0.18em;
+      color: rgba(17, 17, 16, 0.32);
+      margin-top: clamp(16px, 2.5vh, 28px);
+    }
+
+    /* ─── ABOUT ──────────────────────────────────────────────────── */
+    .about {
+      padding: 0 clamp(28px, 6vw, 96px);
+    }
+
+    .about__eyebrow {
+      display: block;
+      font-size: 10px;
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: 0.22em;
+      color: rgba(17, 17, 16, 0.34);
+      margin-bottom: clamp(24px, 3.5vh, 40px);
+    }
+
+    .about__opener {
+      font-size: clamp(30px, 4vw, 56px);
+      font-weight: 400;
+      font-style: normal;
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: clamp(48px, 7vh, 88px);
+    }
+
+    .about__columns {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: clamp(48px, 7vw, 112px);
+      align-items: start;
+      max-width: 980px;
+    }
+
+    .about__body p {
+      font-size: clamp(13px, 1.05vw, 14.5px);
+      font-weight: 400;
+      font-style: normal;
+      line-height: 1.95;
+      letter-spacing: 0.015em;
+      color: rgba(17, 17, 16, 0.58);
+    }
+
+    .about__body p + p {
+      margin-top: 1.1em;
+    }
+
+    .about__signature {
+      display: block;
+      font-size: 15px;
+      font-weight: 400;
+      font-style: italic;
+      color: rgba(17, 17, 16, 0.38);
+      margin-top: clamp(32px, 4.5vh, 52px);
+    }
+
+    .about__pullquote {
+      font-size: clamp(17px, 2vw, 26px);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.48;
+      letter-spacing: 0.01em;
+      color: rgba(17, 17, 16, 0.78);
+    }
+
+    /* ─── GALLERY SECTION ────────────────────────────────────────── */
+    .gallery__eyebrow {
+      display: block;
+      font-size: 10px;
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: 0.22em;
+      color: rgba(17, 17, 16, 0.34);
+      padding: 0 clamp(28px, 6vw, 96px);
+      margin-bottom: clamp(48px, 7vh, 96px);
+    }
+
+    /* ─── VIDEO SECTION ──────────────────────────────────────────── */
+    .video-wrap__eyebrow {
+      display: block;
+      font-size: 10px;
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: 0.22em;
+      color: rgba(17, 17, 16, 0.34);
+      padding: 0 clamp(28px, 6vw, 96px);
+      margin-bottom: clamp(24px, 3.5vh, 40px);
+    }
+
+    /* ─── INQUIRY ────────────────────────────────────────────────── */
+    .inquiry {
+      padding: 0 clamp(28px, 6vw, 96px);
+    }
+
+    .inquiry__inner {
+      max-width: 500px;
+    }
+
+    .inquiry__eyebrow {
+      display: block;
+      font-size: 10px;
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: 0.22em;
+      color: rgba(17, 17, 16, 0.34);
+      margin-bottom: clamp(28px, 4vh, 48px);
+    }
+
+    .inquiry__headline {
+      font-size: clamp(28px, 3.2vw, 44px);
+      font-weight: 400;
+      font-style: normal;
+      line-height: 1.15;
+      letter-spacing: 0.01em;
+      color: var(--ink);
+      margin-bottom: clamp(18px, 2.5vh, 28px);
+    }
+
+    .inquiry__subline {
+      font-size: clamp(13px, 1.05vw, 14.5px);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.85;
+      color: rgba(17, 17, 16, 0.50);
+      margin-bottom: clamp(48px, 7vh, 80px);
+    }
+
+    .inquiry__field {
+      width: 100%;
+      margin-bottom: clamp(24px, 3.5vh, 38px);
+    }
+
+    .inquiry__field input,
+    .inquiry__field textarea {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(17, 17, 16, 0.14);
+      padding: 9px 0;
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      color: var(--ink);
+      outline: none;
+      resize: none;
+      appearance: none;
+      -webkit-appearance: none;
+      border-radius: 0;
+      transition: border-color 0.3s ease;
+    }
+
+    .inquiry__field textarea {
+      min-height: 88px;
+      padding-top: 4px;
+    }
+
+    .inquiry__field input::placeholder,
+    .inquiry__field textarea::placeholder {
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 13px;
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: 0.04em;
+      color: rgba(17, 17, 16, 0.28);
+    }
+
+    .inquiry__field input:focus,
+    .inquiry__field textarea:focus {
+      border-bottom-color: rgba(17, 17, 16, 0.54);
+    }
+
+    .inquiry__submit {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 12px;
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: 0.16em;
+      color: rgba(17, 17, 16, 0.44);
+      padding: 0;
+      margin-top: clamp(12px, 1.5vh, 20px);
+      transition: color 0.35s ease;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    .inquiry__submit:hover {
+      color: var(--ink);
+    }
+
+    .inquiry__closing {
+      display: block;
+      font-size: clamp(13px, 1.05vw, 14.5px);
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.6;
+      color: rgba(17, 17, 16, 0.30);
+      margin-top: clamp(40px, 6vh, 64px);
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────────────────── */
+    .footer {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 0 clamp(28px, 6vw, 96px);
+    }
+
+    .footer__left {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .footer__name {
+      font-size: clamp(15px, 1.6vw, 20px);
+      font-weight: 400;
+      color: rgba(17, 17, 16, 0.78);
+    }
+
+    .footer__title {
+      font-size: 10px;
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: 0.16em;
+      color: rgba(17, 17, 16, 0.34);
+    }
+
+    .footer__location {
+      font-size: 10px;
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: 0.10em;
+      color: rgba(17, 17, 16, 0.24);
+    }
+
+    .footer__right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 7px;
+    }
+
+    .footer__link {
+      font-size: 10px;
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: 0.16em;
+      color: rgba(17, 17, 16, 0.34);
+      transition: color 0.35s ease;
+    }
+
+    .footer__link:hover {
+      color: rgba(17, 17, 16, 0.78);
+    }
+
+    .footer__copy {
+      font-size: 10px;
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: 0.08em;
+      color: rgba(17, 17, 16, 0.20);
+    }
+
+    /* ─── MOBILE ─────────────────────────────────────────────────── */
+    @media (max-width: 767px) {
+
+      .nav__menu {
+        display: none;
+      }
+
+      .plate--wide {
+        width: 93%;
+      }
+
+      .plate--standard {
+        width: 90%;
+      }
+
+      .plate--intimate {
+        width: 82%;
+      }
+
+      .plate--pull-left {
+        width: 88%;
+        margin-left: clamp(16px, 5vw, 32px);
+        margin-right: auto;
+      }
+
+      .plate--pull-right {
+        width: 88%;
+        margin-right: clamp(16px, 5vw, 32px);
+        margin-left: auto;
+      }
+
+      .about__columns {
+        grid-template-columns: 1fr;
+        gap: clamp(36px, 6vh, 56px);
+      }
+
+      .footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: clamp(28px, 5vh, 44px);
+      }
+
+      .footer__right {
+        align-items: flex-start;
+      }
+
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ─── NAVIGATION ─────────────────────────────────────────────── -->
+  <nav class="nav" role="navigation" aria-label="Hauptnavigation">
+    <span class="nav__wordmark">Didem Kanteper</span>
+    <ul class="nav__menu">
+      <li><a href="#arbeit">Arbeit</a></li>
+      <li><a href="#about">Über mich</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- ─── OPENING — the title page ──────────────────────────────── -->
+  <!--
+    No image here. A page of typography only.
+    Silence before the photographs.
+  -->
+  <header class="opening">
+    <span class="opening__eyebrow">Hochzeitsfotografie · Deutschland</span>
+    <h1 class="opening__title">Didem Kanteper</h1>
+    <p class="opening__line">
+      Nicht wie deine Hochzeit aussah —<br>
+      wie sie sich angefühlt hat.
+    </p>
+  </header>
+
+
+  <!-- ─── FIRST PHOTOGRAPH ──────────────────────────────────────── -->
+  <!--
+    The opening image. Shown at its natural aspect ratio — no cropping,
+    no fixed height. The photograph occupies the space it was made for.
+  -->
+  <figure class="plate plate--wide">
+    <img
+      src="./hero/DSC05433.jpg"
+      alt=""
+      aria-hidden="true"
+      loading="eager"
+    >
+  </figure>
+
+
+  <div class="gap-lg"></div>
+
+
+  <!-- ─── STATEMENT ─────────────────────────────────────────────── -->
+  <section class="statement">
+    <p class="statement__text">
+      Die Momente, die sich ankündigen,<br>
+      sind selten die, die bleiben.
+    </p>
+  </section>
+
+
+  <div class="gap-lg"></div>
+  <div class="rule"></div>
+  <div class="gap-xl"></div>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       STORY ONE — LEONORA & DENIS
+  ═══════════════════════════════════════════════════════════════ -->
+
+  <section id="arbeit">
+
+    <div class="story__head">
+      <span class="story__meta">Berlin · 2025</span>
+      <h2 class="story__name">Leonora &amp; Denis</h2>
+    </div>
+
+    <div class="gap-md"></div>
+
+    <!-- Opening image — full width, the most powerful frame -->
+    <figure class="plate plate--full">
+      <img
+        src="./LEONORA AND DENIS/DSC01757.jpg"
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+      >
+    </figure>
+
+    <div class="gap-sm"></div>
+
+    <!-- Second image — wide, centered -->
+    <figure class="plate plate--wide">
+      <img
+        src="./LEONORA AND DENIS/DSC01909.jpg"
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+      >
+    </figure>
+
+    <div class="gap-sm"></div>
+
+    <!-- Third — pulled slightly left, creates asymmetry -->
+    <figure class="plate plate--pull-left">
+      <img
+        src="./LEONORA AND DENIS/DSC00300.jpg"
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+      >
+    </figure>
+
+    <div class="gap-sm"></div>
+
+    <!-- Fourth — standard centered, a quieter scale -->
+    <figure class="plate plate--standard">
+      <img
+        src="./LEONORA AND DENIS/DSC00565.jpg"
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+      >
+    </figure>
+
+    <div class="gap-sm"></div>
+
+    <!-- Fifth — small, intimate — the detail that stops you -->
+    <figure class="plate plate--intimate">
+      <img
+        src="./LEONORA AND DENIS/DSC00287.jpg"
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+      >
+    </figure>
+
+    <div class="gap-md"></div>
+
+    <div class="story__body">
+      <p>
+        Leonora und Denis haben ihren Tag mit einer Ruhe gefeiert,
+        die man selten erlebt. Zwischen den Worten entstanden Momente —
+        ehrlich, unangekündigt, unvergessen.
+      </p>
+      <p>
+        Ich habe gewartet. Ich habe geschaut. Das ist alles, was ich getan habe.
+      </p>
+    </div>
+
+    <div class="gap-sm"></div>
+    <a class="story__link" href="#">Ihre Geschichte →</a>
+
+  </section>
+
+
+  <div class="gap-xl"></div>
+  <div class="rule"></div>
+  <div class="gap-xl"></div>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       STORY TWO — AYCAN & ERGIN
+  ═══════════════════════════════════════════════════════════════ -->
+
+  <section>
+
+    <div class="story__head">
+      <span class="story__meta">Bayern · 2025</span>
+      <h2 class="story__name">Aycan &amp; Ergin</h2>
+    </div>
+
+    <div class="gap-md"></div>
+
+    <!-- First — pulled right, immediately different from story one -->
+    <figure class="plate plate--pull-right">
+      <img
+        src="./Aycan & Ergin/DSC01635.jpg"
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+      >
+    </figure>
+
+    <div class="gap-sm"></div>
+
+    <!-- Second — full width, the punctuation moment -->
+    <figure class="plate plate--full">
+      <img
+        src="./Aycan & Ergin/DSC01491.jpg"
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+      >
+    </figure>
+
+    <div class="gap-sm"></div>
+
+    <!-- Third — standard centered -->
+    <figure class="plate plate--standard">
+      <img
+        src="./Aycan & Ergin/DSC00823.jpg"
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+      >
+    </figure>
+
+    <div class="gap-sm"></div>
+
+    <!-- Fourth — small, intimate, the quiet close -->
+    <figure class="plate plate--intimate">
+      <img
+        src="./Aycan & Ergin/DSC01769.jpg"
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+      >
+    </figure>
+
+    <div class="gap-md"></div>
+
+    <div class="story__body">
+      <p>
+        Aycan und Ergin. Jede Geste sprach für sich. Ich habe gewartet —
+        und genau das festgehalten, was man nicht inszenieren kann.
+      </p>
+    </div>
+
+    <div class="gap-md"></div>
+
+    <!-- Testimonial — minimal, no decoration -->
+    <div class="testimonial">
+      <blockquote>
+        „Du hast es geschafft, all die großen Emotionen und kleinen, kostbaren
+        Augenblicke so authentisch festzuhalten, dass wir beim Anschauen der
+        Bilder jedes Mal wieder mitten in diesem Tag sind."
+      </blockquote>
+      <cite>— Aycan &amp; Ergin</cite>
+    </div>
+
+    <div class="gap-sm"></div>
+    <a class="story__link" href="#">Ihre Geschichte →</a>
+
+  </section>
+
+
+  <div class="gap-xl"></div>
+
+
+  <!-- ─── PUNCTUATION IMAGE — the emotional peak of the page ─────── -->
+  <!--
+    One image, full width, no text around it.
+    It is the message.
+  -->
+  <figure class="plate plate--full">
+    <img
+      src="./Aycan & Ergin/DSC03613.jpg"
+      alt=""
+      aria-hidden="true"
+      loading="lazy"
+    >
+  </figure>
+
+
+  <div class="gap-xl"></div>
+  <div class="rule"></div>
+  <div class="gap-xl"></div>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       ABOUT — THE PERSON
+  ═══════════════════════════════════════════════════════════════ -->
+
+  <section class="about" id="about">
+
+    <span class="about__eyebrow">Die Fotografin</span>
+
+    <h2 class="about__opener">Ich bin Didem.</h2>
+
+    <div class="about__columns">
+
+      <div class="about__body">
+        <p>
+          Ich war noch nie gut darin, Fotos zu erklären.
+          Ich bin gut darin, hinzuschauen.
+        </p>
+        <p>
+          Auf einer Hochzeit passiert alles gleichzeitig — der Ausdruck
+          im Gesicht eines Vaters, wenn seine Tochter den Raum betritt.
+          Die Art, wie eine Freundin den Atem anhält, bevor die Zeremonie
+          beginnt. Eine Hand, die nach einer anderen greift — ohne
+          nachzudenken.
+        </p>
+        <p>
+          Diese Momente sind oft vorbei, bevor jemand sie bemerkt.
+          Ich warte auf sie. Ich inszeniere nichts. Und ich glaube daran,
+          dass die schönsten Bilder entstehen, wenn ihr mich fast vergessen habt.
+        </p>
+        <p>
+          Was ich euch wünsche: Bilder, die euch in zehn Jahren noch genau
+          in diesen einen Moment zurückversetzen — nicht weil sie schön
+          aussehen, sondern weil sie sich genauso anfühlen.
+        </p>
+        <span class="about__signature">Didem Kanteper</span>
+      </div>
+
+      <p class="about__pullquote">
+        „Ich fotografiere Hochzeiten nicht nur so, wie sie aussehen —
+        sondern so, wie sie sich anfühlen."
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <div class="gap-xl"></div>
+  <div class="rule"></div>
+  <div class="gap-xl"></div>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       GALLERY — the full view
+       No text. No captions. Only photographs.
+       Zone rhythm: Full → Wide → Standard → Pull → Full → Intimate → Wide
+  ═══════════════════════════════════════════════════════════════ -->
+
+  <section>
+
+    <span class="gallery__eyebrow">Auswahl · Arbeiten</span>
+
+    <figure class="plate plate--full">
+      <img
+        src="./Website2gallery/DSC05590.jpg"
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+      >
+    </figure>
+
+    <div class="gap-sm"></div>
+
+    <figure class="plate plate--wide">
+      <img
+        src="./Website2gallery/DSC08223.jpg"
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+      >
+    </figure>
+
+    <div class="gap-sm"></div>
+
+    <figure class="plate plate--standard">
+      <img
+        src="./Website2gallery/DSC00303.jpg"
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+      >
+    </figure>
+
+    <div class="gap-sm"></div>
+
+    <figure class="plate plate--pull-left">
+      <img
+        src="./Website2gallery/DSC01691-2.jpg"
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+      >
+    </figure>
+
+    <div class="gap-sm"></div>
+
+    <figure class="plate plate--full">
+      <img
+        src="./Website2gallery/DSC04893.jpg"
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+      >
+    </figure>
+
+    <div class="gap-sm"></div>
+
+    <figure class="plate plate--intimate">
+      <img
+        src="./Website2gallery/DSC01075.jpg"
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+      >
+    </figure>
+
+    <div class="gap-sm"></div>
+
+    <figure class="plate plate--wide">
+      <img
+        src="./Website2gallery/DSC05121.jpg"
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+      >
+    </figure>
+
+  </section>
+
+
+  <div class="gap-xl"></div>
+  <div class="rule"></div>
+  <div class="gap-xl"></div>
+
+
+  <!-- ─── VIDEO ─────────────────────────────────────────────────── -->
+  <!--
+    The video treated as a plate — no dark frame, no cinematic bars.
+    It breathes the same way a photograph does.
+  -->
+  <section>
+    <span class="video-wrap__eyebrow">Film</span>
+    <figure class="plate plate--wide">
+      <video
+        src="./video/VideoLD.mov"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        aria-hidden="true"
+      ></video>
+    </figure>
+  </section>
+
+
+  <div class="gap-xl"></div>
+  <div class="rule"></div>
+  <div class="gap-xl"></div>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       INQUIRY — the invitation
+  ═══════════════════════════════════════════════════════════════ -->
+
+  <section class="inquiry" id="kontakt">
+    <div class="inquiry__inner">
+
+      <span class="inquiry__eyebrow">Anfrage</span>
+
+      <h2 class="inquiry__headline">Erzählt mir von eurem Tag.</h2>
+
+      <p class="inquiry__subline">
+        Ich nehme mir Zeit für jedes Paar, das mir schreibt — nicht
+        um eine Liste abzuhaken, sondern weil ich verstehen möchte,
+        wie sich euer Tag anfühlen soll.
+      </p>
+
+      <form class="inquiry__form" action="#" method="post" novalidate>
+
+        <div class="inquiry__field">
+          <input
+            type="text"
+            name="names"
+            placeholder="Eure Namen"
+            autocomplete="name"
+          >
+        </div>
+
+        <div class="inquiry__field">
+          <input
+            type="text"
+            name="date"
+            placeholder="Datum der Hochzeit"
+          >
+        </div>
+
+        <div class="inquiry__field">
+          <input
+            type="text"
+            name="location"
+            placeholder="Ort der Hochzeit"
+          >
+        </div>
+
+        <div class="inquiry__field">
+          <input
+            type="text"
+            name="referral"
+            placeholder="Wie habt ihr mich gefunden?"
+          >
+        </div>
+
+        <div class="inquiry__field">
+          <textarea
+            name="message"
+            placeholder="Erzählt mir von eurem Tag — was euch bewegt, was ihr euch wünscht, was ihr fühlt ..."
+          ></textarea>
+        </div>
+
+        <button type="submit" class="inquiry__submit">
+          Senden →
+        </button>
+
+      </form>
+
+      <span class="inquiry__closing">
+        Ich melde mich persönlich bei euch.
+      </span>
+
+    </div>
+  </section>
+
+
+  <div class="gap-xl"></div>
+  <div class="rule"></div>
+  <div class="gap-lg"></div>
+
+
+  <!-- ─── FOOTER ─────────────────────────────────────────────────── -->
+  <footer class="footer" role="contentinfo">
+
+    <div class="footer__left">
+      <span class="footer__name">Didem Kanteper</span>
+      <span class="footer__title">Hochzeitsfotografie · Editorial</span>
+      <span class="footer__location">Deutschland · weltweit</span>
+    </div>
+
+    <div class="footer__right">
+      <a href="#" class="footer__link">Instagram</a>
+      <a href="#" class="footer__link">Impressum</a>
+      <a href="#" class="footer__link">Datenschutz</a>
+      <span class="footer__copy">&copy; 2026 Didem Kanteper</span>
+    </div>
+
+  </footer>
+
+
+  <div class="gap-lg"></div>
+
+
+</body>
+</html>

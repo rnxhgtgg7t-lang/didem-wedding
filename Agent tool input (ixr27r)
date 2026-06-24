@@ -1,0 +1,37 @@
+Save a new project memory to the auto-memory system at `/Users/saglamahsen/.claude/projects/-Users-saglamahsen-Desktop-webseite--didem-wedding/memory/`.
+
+Write a file called `project_language_system.md` with this content exactly:
+
+```markdown
+---
+name: project-language-system
+description: Global language rule — English for editorial/navigation, German for all body/supporting copy
+metadata:
+  type: project
+---
+
+**Two-layer language system, confirmed as global rule for the entire website.**
+
+**Layer 1 — English:**
+- Navigation items (Stories, Artist, Highlights, Inquiry)
+- Section titles and editorial headings
+- Hero headlines and positioning statements ("Before time changes it.")
+- Brand identity lines ("Wedding Photography by Didem Kanteper")
+- Short editorial declarations at section level
+
+**Layer 2 — German:**
+- All supporting copy and body text
+- Explanatory text in any section
+- Story text (Leonora & Denis, Aycan & Ergin)
+- About section paragraphs
+- Belief section supporting line
+- Inquiry section copy and form labels
+- Any text that elaborates, explains, or speaks to the visitor directly
+
+**Why:** English operates as the elevated editorial register — the voice that speaks first and declares. German operates as the intimate, human register — the voice that speaks directly to the specific audience (German-speaking couples). This dual-layer system creates a distinctive brand identity: international aesthetic, local soul.
+
+**How to apply:** Before writing any line, determine which layer it belongs to. If it declares → English. If it explains or speaks → German.
+```
+
+Then add this line to `MEMORY.md` under the existing entries:
+`- [Language System](project_language_system.md) — English for editorial/nav/headlines; German for all body copy and supporting text`

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impressum — Didem Kanteper</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=EB+Garamond:ital,wght@0,400;1,400&family=Jost:ital,wght@0,200;0,300;0,400&family=Pinyon+Script&display=swap" rel="stylesheet">
+  <style>
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --paper:  #F5EFE6;
+      --ink:    #1C1714;
+      --accent: #9A8067;
+      --canvas: #262D25;
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      background: var(--canvas);
+      color: var(--paper);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Nav ─────────────────────────────────────────── */
+    .contact-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(32px, 6vw, 96px);
+      height: 72px;
+      background: rgba(38, 45, 37, 0.94);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .contact-nav__wordmark {
+      font-family: 'Pinyon Script', cursive;
+      font-size: 22px;
+      color: rgba(245, 239, 230, 0.88);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-nav__wordmark:hover { color: var(--paper); }
+
+    .contact-nav__back {
+      font-family: 'Jost', sans-serif;
+      font-weight: 200;
+      font-size: 10px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: rgba(245, 239, 230, 0.78);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-nav__back:hover { color: var(--accent); }
+
+    /* ── Page ─────────────────────────────────────────── */
+    .legal-page {
+      padding: clamp(120px, 16vh, 160px) clamp(32px, 8vw, 160px) clamp(100px, 14vh, 160px);
+      max-width: 860px;
+    }
+
+    .legal-label {
+      font-family: 'Jost', sans-serif;
+      font-weight: 200;
+      font-size: 9px;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: clamp(20px, 2.5vh, 28px);
+    }
+
+    .legal-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(36px, 5vw, 64px);
+      line-height: 1.08;
+      letter-spacing: 0.01em;
+      color: var(--paper);
+      margin-bottom: clamp(48px, 7vh, 80px);
+    }
+
+    .legal-divider {
+      width: 36px;
+      height: 1px;
+      background: var(--accent);
+      opacity: 0.55;
+      margin-bottom: clamp(48px, 7vh, 80px);
+    }
+
+    .legal-section {
+      margin-bottom: clamp(40px, 6vh, 64px);
+    }
+
+    .legal-section__title {
+      font-family: 'Jost', sans-serif;
+      font-weight: 200;
+      font-size: 9px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: rgba(245, 239, 230, 0.42);
+      margin-bottom: clamp(14px, 2vh, 20px);
+    }
+
+    .legal-section__body {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 1.90;
+      letter-spacing: 0.012em;
+      color: rgba(245, 239, 230, 0.78);
+    }
+
+    .legal-section__body p + p {
+      margin-top: 0.6em;
+    }
+
+    .legal-section__body a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .legal-section__body a:hover {
+      text-decoration: underline;
+    }
+
+    /* ── Footer ─────────────────────────────────────── */
+    .site-footer {
+      background: var(--canvas);
+      padding: clamp(52px, 7vh, 80px) clamp(40px, 7vw, 120px) clamp(36px, 4.5vh, 52px);
+    }
+
+    .site-footer__divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(245, 239, 230, 0.35);
+      margin-bottom: clamp(8px, 1vh, 12px);
+    }
+
+    .site-footer__row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .site-footer__links {
+      display: flex;
+      gap: clamp(20px, 2.5vw, 36px);
+    }
+
+    .site-footer__link {
+      font-family: 'Jost', sans-serif;
+      font-weight: 200;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(245, 239, 230, 0.92);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .site-footer__link:hover { color: var(--accent); }
+
+    .site-footer__copy {
+      font-family: 'Pinyon Script', cursive;
+      font-size: 20px;
+      color: rgba(245, 239, 230, 0.55);
+    }
+
+    @media (max-width: 600px) {
+      .legal-page { padding-left: 24px; padding-right: 24px; }
+      .site-footer { padding-left: 24px; padding-right: 24px; }
+      .site-footer__row { flex-direction: column; align-items: flex-start; gap: clamp(16px, 2vh, 24px); }
+    }
+
+  
+    /* ── Page transitions ───────────────────────────── */
+    @keyframes page-in {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    body { animation: page-in 0.5s ease forwards; }
+    body.is-leaving { opacity: 0; transition: opacity 0.35s ease; }
+
+  </style>
+</head>
+<body>
+
+  <header class="contact-nav">
+    <a href="hero-comparison.html" class="contact-nav__wordmark">Didem Kanteper</a>
+    <a href="hero-comparison.html" class="contact-nav__back">← Zurück</a>
+  </header>
+
+  <main class="legal-page">
+
+    <p class="legal-label">Rechtliches</p>
+    <h1 class="legal-headline">Impressum</h1>
+    <div class="legal-divider"></div>
+
+    <div class="legal-section">
+      <p class="legal-section__title">Angaben gemäß § 5 TMG</p>
+      <div class="legal-section__body">
+        <p>Didem Kanteper</p>
+        <p>Heidelberg</p>
+      </div>
+    </div>
+
+    <div class="legal-section">
+      <p class="legal-section__title">Kontakt</p>
+      <div class="legal-section__body">
+        <p>Telefon: +49 163 441 79 98</p>
+        <p>E-Mail: <a href="mailto:didem@didemkanteper.de">didem@didemkanteper.de</a></p>
+      </div>
+    </div>
+
+    <div class="legal-section">
+      <p class="legal-section__title">Hinweis zur Haftung für Inhalte</p>
+      <div class="legal-section__body">
+        <p>Als Diensteanbieter bin ich gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG bin ich als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+      </div>
+    </div>
+
+    <div class="legal-section">
+      <p class="legal-section__title">Hinweis zur Haftung für Links</p>
+      <div class="legal-section__body">
+        <p>Meine Website enthält Links zu externen Websites Dritter, auf deren Inhalte ich keinen Einfluss habe. Deshalb kann ich für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.</p>
+      </div>
+    </div>
+
+    <div class="legal-section">
+      <p class="legal-section__title">Urheberrecht</p>
+      <div class="legal-section__body">
+        <p>Die durch mich erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen meiner schriftlichen Zustimmung.</p>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer__divider"></div>
+    <div class="site-footer__row">
+      <div class="site-footer__links">
+        <a href="contact.html" class="site-footer__link">Kontakt</a>
+        <a href="https://www.instagram.com/didemkantepergraphy/" target="_blank" rel="noopener" class="site-footer__link">Instagram</a>
+        <a href="impressum.html" class="site-footer__link">Impressum</a>
+        <a href="datenschutz.html" class="site-footer__link">Datenschutz</a>
+      </div>
+      <span class="site-footer__copy">&copy; 2026 Didem Kanteper</span>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('click', function(e) {
+      var link = e.target.closest('a[href]');
+      if (!link) return;
+      var href = link.getAttribute('href');
+      if (!href || href.charAt(0) === '#' || href.indexOf('http') === 0 || href.indexOf('mailto:') === 0 || href.indexOf('tel:') === 0) return;
+      e.preventDefault();
+      document.body.classList.add('is-leaving');
+      setTimeout(function() { window.location.href = href; }, 350);
+    });
+  </script>
+</body>
+</html>

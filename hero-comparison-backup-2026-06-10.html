@@ -1,0 +1,1745 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Didem Kanteper — Wedding Photography</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:ital,wght@0,200;0,300;0,400;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --paper:  #F5EFE6;
+      --ink:    #1C1714;
+      --accent: #9A8067;
+    }
+
+    html {
+      width: 100%;
+      background: var(--ink);
+      overflow-x: hidden;
+    }
+
+    body {
+      width: 100%;
+      background: var(--paper);
+      overflow-x: hidden;
+    }
+
+    /* ─── HERO ──────────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .hero__image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+      display: block;
+    }
+
+    .hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.04) 0%,
+        rgba(0, 0, 0, 0.00) 35%,
+        rgba(0, 0, 0, 0.18) 65%,
+        rgba(0, 0, 0, 0.48) 100%
+      );
+      pointer-events: none;
+    }
+
+    .nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 56px;
+      height: 72px;
+    }
+
+    .nav__menu {
+      display: flex;
+      align-items: center;
+      gap: 38px;
+      list-style: none;
+    }
+
+    .nav__menu a {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 9.5px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(245, 239, 230, 0.68);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .nav__menu a:hover {
+      color: rgba(245, 239, 230, 0.92);
+    }
+
+    .hero__text {
+      position: absolute;
+      bottom: 7vh;
+      left: 7vw;
+      z-index: 20;
+      max-width: 720px;
+    }
+
+    .hero__headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(32px, 3.6vw, 49px);
+      line-height: 1.15;
+      letter-spacing: 0.015em;
+      color: var(--paper);
+      margin: 0;
+    }
+
+    .hero__headline em {
+      font-style: normal;
+      display: block;
+      white-space: nowrap;
+    }
+
+    .hero__byline {
+      font-family: 'Jost', sans-serif;
+      font-weight: 200;
+      font-size: 8.5px;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: rgba(245, 239, 230, 0.38);
+      margin-top: 16px;
+      margin-bottom: 0;
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 20;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .scroll-indicator__line {
+      width: 1px;
+      height: 30px;
+      background: rgba(245, 239, 230, 0.28);
+    }
+
+    .scroll-indicator__label {
+      font-family: 'Jost', sans-serif;
+      font-weight: 200;
+      font-size: 8px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(245, 239, 230, 0.38);
+      order: 2;
+    }
+
+    @media (max-width: 767px) {
+      .hero__text {
+        bottom: 5vh;
+        left: 6vw;
+        right: 6vw;
+        max-width: none;
+      }
+      .hero__headline {
+        font-size: clamp(28px, 7.8vw, 38px);
+      }
+      .hero__byline {
+        font-size: 7.5px;
+      }
+      .nav {
+        padding: 0 24px;
+      }
+      .nav__menu {
+        display: none;
+      }
+    }
+
+    /* ─── BRIDGE ────────────────────────────────────────────────── */
+    .note {
+      background: var(--paper);
+      padding: clamp(52px, 7vh, 80px) clamp(40px, 7vw, 120px);
+      text-align: center;
+    }
+
+    .note__inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .note__inner::before,
+    .note__inner::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--accent);
+      opacity: 0.35;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .note__inner::before {
+      margin-bottom: clamp(14px, 2vh, 22px);
+    }
+
+    .note__inner::after {
+      margin-top: clamp(14px, 2vh, 22px);
+    }
+
+    .note__statement {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-style: italic;
+      font-size: clamp(34px, 5vw, 72px);
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+      color: var(--ink);
+      margin: 0;
+    }
+
+    /* ─── EDITORIAL ─────────────────────────────────────────────── */
+    .editorial {
+      background: #262D25;
+      padding: clamp(100px, 14vh, 160px) clamp(40px, 7vw, 120px);
+    }
+
+    .editorial__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(48px, 8vw, 120px);
+      align-items: start;
+    }
+
+    .editorial__label {
+      display: block;
+      font-family: 'Jost', sans-serif;
+      font-weight: 200;
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: clamp(32px, 4vh, 48px);
+    }
+
+    .editorial__headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(32px, 3.6vw, 50px);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      color: #ffffff;
+      margin: 0 0 clamp(36px, 4.5vh, 56px);
+    }
+
+    .editorial__body {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: clamp(12px, 1.05vw, 13.5px);
+      line-height: 1.88;
+      letter-spacing: 0.02em;
+      color: rgba(255, 255, 255, 0.90);
+    }
+
+    .editorial__body + .editorial__body {
+      margin-top: 18px;
+    }
+
+    .editorial__image-col {
+      padding-top: clamp(48px, 9vh, 80px);
+      position: relative;
+      z-index: 3;
+    }
+
+    .editorial__image {
+      display: block;
+      width: 100%;
+      height: clamp(480px, 72vh, 820px);
+      object-fit: cover;
+      object-position: center 55%;
+    }
+
+    .editorial__cta-wrap {
+      margin-top: clamp(48px, 7vh, 72px);
+    }
+
+    .editorial__cta-line {
+      display: block;
+      width: 1px;
+      height: 40px;
+      background: var(--accent);
+      opacity: 0.65;
+      margin-bottom: 20px;
+    }
+
+    .editorial__cta {
+      display: inline-block;
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 9px;
+      letter-spacing: 0.30em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      opacity: 0.85;
+      transition: opacity 0.5s ease;
+    }
+
+    .editorial__cta:hover {
+      opacity: 0.40;
+    }
+
+    @media (max-width: 767px) {
+      .editorial {
+        padding: clamp(100px, 14vh, 160px) 6vw;
+      }
+      .editorial__inner {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .editorial__image-col {
+        padding-top: 48px;
+      }
+      .editorial__image {
+        height: max(360px, 80vw);
+      }
+      .editorial__headline {
+        font-size: clamp(28px, 8vw, 42px);
+      }
+    }
+
+    /* ─── ARTIST ────────────────────────────────────────────────── */
+    .artist {
+      background: #262D25;
+      padding: clamp(48px, 6vh, 80px) clamp(40px, 7vw, 120px) clamp(100px, 14vh, 160px);
+    }
+
+    .artist__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: clamp(56px, 7vw, 100px);
+      align-items: start;
+    }
+
+    .artist__text {
+      padding-top: clamp(100px, 14vh, 160px);
+    }
+
+    .artist__portrait-wrap {
+      position: sticky;
+      top: 72px;
+    }
+
+    .artist__portrait-placeholder {
+      aspect-ratio: 2 / 3;
+      background: rgba(255, 255, 255, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .artist__portrait-placeholder span {
+      font-family: 'Jost', sans-serif;
+      font-weight: 200;
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.28);
+      line-height: 2;
+      text-align: center;
+    }
+
+    .artist__label {
+      display: block;
+      font-family: 'Jost', sans-serif;
+      font-weight: 200;
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-top: clamp(-65px, -8vh, -52px);
+      margin-bottom: clamp(28px, 3.5vh, 40px);
+    }
+
+    .artist__headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(26px, 2.6vw, 38px);
+      line-height: 1.22;
+      letter-spacing: 0;
+      color: #ffffff;
+      margin: 0 0 clamp(36px, 4.5vh, 52px);
+    }
+
+    .artist__para {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: clamp(12px, 1.05vw, 14px);
+      line-height: 1.92;
+      letter-spacing: 0.02em;
+      color: rgba(245, 239, 230, 0.88);
+      margin-bottom: 20px;
+    }
+
+    .artist__para:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .artist__signature {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(17px, 1.5vw, 22px);
+      letter-spacing: 0.02em;
+      color: rgba(245, 239, 230, 0.50);
+      margin-top: clamp(40px, 5vh, 60px);
+    }
+
+    .artist__cta {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(15px, 1.5vw, 22px);
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 6px;
+      text-decoration-thickness: 1px;
+      text-decoration-color: rgba(154, 128, 103, 0.30);
+      margin-top: clamp(28px, 3.5vh, 44px);
+      white-space: nowrap;
+      opacity: 0.90;
+      transition: opacity 0.5s ease;
+    }
+
+    .artist__cta:hover { opacity: 1; }
+
+    .artist__cta::before {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 40px;
+      background: var(--accent);
+      opacity: 0.65;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 767px) {
+      .artist__inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .artist__portrait-wrap {
+        position: static;
+        max-width: 72vw;
+      }
+      .artist__headline {
+        font-size: clamp(22px, 6.5vw, 32px);
+      }
+    }
+
+    /* ─── CURATED SEQUENCE ──────────────────────────────────────── */
+    .sequence {
+      background: var(--paper);
+      padding: clamp(100px, 14vh, 160px) clamp(40px, 7vw, 120px);
+      padding-top: calc(clamp(100px, 14vh, 160px) + 64px);
+      padding-bottom: clamp(140px, 18vh, 220px);
+      position: relative;
+      z-index: 1;
+      margin-top: calc(clamp(220px, 28vh, 340px) * -1);
+    }
+
+    .sequence__intro {
+      max-width: 580px;
+      margin: 0 auto clamp(64px, 8vh, 96px);
+      text-align: center;
+    }
+
+    .sequence__headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(28px, 2.8vw, 40px);
+      line-height: 1.18;
+      letter-spacing: 0;
+      color: var(--ink);
+      margin: 0 0 clamp(20px, 2.5vh, 28px);
+    }
+
+    .sequence__body {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: clamp(11px, 1vw, 13px);
+      line-height: 1.88;
+      letter-spacing: 0.02em;
+      color: rgba(28, 23, 20, 0.78);
+    }
+
+    .sequence__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: clamp(12px, 1.6vw, 22px);
+      height: clamp(360px, 54vh, 620px);
+      margin: 0 calc((clamp(40px, 7vw, 120px) - clamp(16px, 2vw, 28px)) * -1);
+    }
+
+    .sequence__img {
+      overflow: hidden;
+    }
+
+    .sequence__img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .sequence__img:nth-child(1) img { object-position: center 20%; }
+    .sequence__img:nth-child(2) img { object-position: center 55%; }
+    .sequence__img:nth-child(3) img { object-position: center 45%; }
+    .sequence__img:nth-child(4) img { object-position: center 25%; }
+
+    @media (max-width: 767px) {
+      .sequence {
+        padding: clamp(80px, 12vh, 120px) 6vw;
+      }
+      .sequence__grid {
+        grid-template-columns: repeat(2, 1fr);
+        height: auto;
+        gap: 10px;
+        margin: 0;
+      }
+      .sequence__img {
+        height: max(180px, 46vw);
+      }
+    }
+
+    /* ─── VIDEO INTERLUDE ─────────────────────────────────────────── */
+    .video-interlude {
+      background: var(--paper);
+      padding-top: 0;
+      padding-bottom: clamp(20px, 2.5vh, 32px);
+      margin-top: calc(clamp(72px, 9vh, 110px) * -1);
+    }
+
+    .video-interlude__frame {
+      position: relative;
+      width: 100%;
+      height: 92vh;
+      overflow: hidden;
+      background: var(--ink);
+    }
+
+    .video-interlude__frame::before,
+    .video-interlude__frame::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 8vh;
+      background: #000;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .video-interlude__frame::before { top: 0; }
+    .video-interlude__frame::after  { bottom: 0; }
+
+    .video-interlude__video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 33%;
+      display: block;
+      z-index: 1;
+    }
+
+    /* ─── MOMENT CHAPTER ───────────────────────────────────────── */
+    .moment-chapter {
+      background: var(--paper);
+      padding: clamp(60px, 7vh, 90px) clamp(40px, 7vw, 120px) clamp(16px, 2.5vh, 28px);
+      position: relative;
+      z-index: 1;
+    }
+
+    .moment-chapter__header {
+      text-align: center;
+      margin-bottom: clamp(48px, 6vh, 72px);
+    }
+
+    .moment-chapter__header::before {
+      content: '';
+      display: block;
+      width: 38px;
+      height: 1px;
+      background: var(--accent);
+      opacity: 0.45;
+      margin: 0 auto clamp(22px, 3.2vh, 36px);
+    }
+
+    .moment-chapter__line1 {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-style: normal;
+      font-size: clamp(46px, 6.5vw, 92px);
+      letter-spacing: 0.01em;
+      color: var(--ink);
+      line-height: 1;
+    }
+
+    .moment-chapter__line2 {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(13px, 1.4vw, 19px);
+      letter-spacing: 0.22em;
+      color: rgba(28,23,20,0.45);
+      line-height: 1;
+      margin-top: clamp(14px, 2vh, 24px);
+    }
+
+    .moment-chapter__body {
+      max-width: 500px;
+      margin: 0 auto clamp(80px, 10vh, 120px);
+      text-align: center;
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: clamp(12px, 1.05vw, 14px);
+      line-height: 1.92;
+      letter-spacing: 0.02em;
+      color: rgba(28,23,20,0.78);
+    }
+
+    .moment-chapter__gallery {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr 1fr;
+      gap: clamp(12px, 1.6vw, 22px);
+      align-items: end;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .moment-chapter__img {
+      overflow: hidden;
+    }
+
+    .moment-chapter__img--side {
+      height: clamp(218px, 33vh, 390px);
+      filter: grayscale(100%);
+    }
+
+    .moment-chapter__img--center {
+      height: clamp(265px, 40vh, 475px);
+    }
+
+    .moment-chapter__img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Black panel canvas — absolutely positioned, does not affect layout */
+    .moment-chapter__canvas {
+      position: relative;
+      padding-bottom: clamp(40px, 6vh, 80px);
+    }
+
+    .moment-chapter__canvas::before {
+      content: '';
+      position: absolute;
+      /* starts ~55% down the side images — lower half of first row is on dark */
+      top: clamp(120px, 18vh, 210px);
+      /* bleeds past section horizontal padding to full viewport width */
+      left: calc(clamp(40px, 7vw, 120px) * -1);
+      right: calc(clamp(40px, 7vw, 120px) * -1);
+      /* ends at roughly the CTA height — pair images straddle olive→paper */
+      bottom: clamp(180px, 21vh, 256px);
+      background: #262D25;
+      z-index: 0;
+    }
+
+    /* All canvas children float above the black panel */
+    .moment-chapter__canvas .moment-chapter__gallery,
+    .moment-chapter__canvas .moment-chapter__subhead,
+    .moment-chapter__canvas .moment-chapter__cta,
+    .moment-chapter__canvas .moment-chapter__pair,
+    .moment-chapter__canvas .moment-chapter__testimonial {
+      position: relative;
+      z-index: 1;
+    }
+
+    .moment-chapter__subhead {
+      font-family: 'Jost', sans-serif;
+      font-weight: 400;
+      font-size: 13px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--paper);
+      margin: clamp(16px, 2vh, 24px) auto clamp(10px, 1.2vh, 14px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(16px, 2vw, 28px);
+      width: 100%;
+    }
+
+    .moment-chapter__subhead::before,
+    .moment-chapter__subhead::after {
+      content: '';
+      flex: 0 0 52px;
+      height: 1px;
+      background: rgba(245,239,230,0.22);
+    }
+
+    .moment-chapter__cta {
+      display: table;
+      margin: clamp(18px, 2.5vh, 28px) auto clamp(12px, 1.5vh, 20px);
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: 11px;
+      line-height: 1;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--paper);
+      text-decoration: none;
+      padding-bottom: 6px;
+      border-bottom: 1px solid rgba(245,239,230,0.28);
+      transition: color 0.35s ease, border-color 0.35s ease;
+      cursor: pointer;
+    }
+
+    .moment-chapter__cta:hover {
+      color: rgba(245,239,230,0.96);
+      border-color: rgba(245,239,230,0.55);
+    }
+
+    .moment-chapter__testimonial {
+      grid-column: 1 / -1;
+      grid-row: 1;
+      padding: 0;
+      text-align: left;
+      position: relative;
+      align-self: auto;
+    }
+
+    /* Header cluster — quote mark + hairline + title — shifted left as one unit */
+    .moment-chapter__testimonial-header {
+      position: relative;
+      left: clamp(-220px, -17vw, -160px);
+      z-index: 1;
+    }
+
+    /* Oversized opening quote — anchored to header cluster */
+    .moment-chapter__testimonial-header::before {
+      content: '\201C';
+      position: absolute;
+      top: -0.25em;
+      left: 0;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(140px, 18vw, 220px);
+      line-height: 1;
+      color: var(--paper);
+      opacity: 0.055;
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+    }
+
+    .moment-chapter__testimonial-title {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 9px;
+      letter-spacing: 0.30em;
+      text-transform: uppercase;
+      color: var(--paper);
+      margin: 0 0 clamp(14px, 2vh, 20px);
+      line-height: 1;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Hairline editorial divider above the title */
+    .moment-chapter__testimonial-title::before {
+      content: '';
+      display: block;
+      width: 36px;
+      height: 1px;
+      background: var(--accent);
+      margin: 0 0 clamp(8px, 1.2vh, 12px);
+      opacity: 0.55;
+    }
+
+    .moment-chapter__quote {
+      margin: clamp(20px, 3vh, 32px) 0 0;
+      padding: 0;
+      max-width: none;
+      position: relative;
+      top: -74px;
+      z-index: 1;
+    }
+
+    .moment-chapter__quote p {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(14px, 1.5vw, 19px);
+      line-height: 1.62;
+      letter-spacing: 0.01em;
+      color: rgba(245,239,230,0.88);
+      margin: 0;
+    }
+
+    .moment-chapter__quote-author {
+      display: inline;
+      margin-left: 0.6em;
+      font-family: 'Jost', sans-serif;
+      font-weight: 200;
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--paper);
+      opacity: 0.55;
+      position: relative;
+      z-index: 1;
+    }
+
+    .moment-chapter__pair {
+      display: grid;
+      grid-template-columns: clamp(200px, 22vw, 280px) clamp(160px, 18vw, 220px) clamp(200px, 22vw, 280px);
+      column-gap: clamp(32px, 4vw, 48px);
+      row-gap: 0;
+      max-width: 1440px;
+      margin: clamp(40px, 6vh, 72px) auto 0;
+      align-items: start;
+      justify-content: center;
+    }
+
+    .moment-chapter__pair > .moment-chapter__pair-img:first-child {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .moment-chapter__pair > .moment-chapter__pair-img:last-child {
+      grid-column: 3;
+      grid-row: 1;
+    }
+
+    .moment-chapter__pair-img {
+      overflow: hidden;
+      height: clamp(280px, 38vh, 380px);
+      margin-top: clamp(8px, 1.2vh, 20px);
+    }
+
+    .moment-chapter__pair-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .moment-chapter__pair-cta {
+      display: block;
+      text-align: center;
+      grid-column: 2;
+      grid-row: 1;
+      align-self: center;
+      margin-top: clamp(8px, 1.2vh, 20px);
+      position: relative;
+      top: -115px;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(17px, 1.9vw, 26px);
+      letter-spacing: 0.05em;
+      text-transform: none;
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 7px;
+      text-decoration-thickness: 1px;
+      text-decoration-color: rgba(154, 128, 103, 0.30);
+      white-space: nowrap;
+      opacity: 0.90;
+      transition: opacity 0.5s ease;
+    }
+
+    .moment-chapter__pair-cta:hover {
+      opacity: 0.38;
+    }
+
+    .moment-chapter__pair-header {
+      grid-column: 2;
+      grid-row: 1;
+      align-self: center;
+      left: 0;
+      top: 170px;
+      text-align: center;
+      z-index: 1;
+    }
+
+    .moment-chapter__pair-header::before {
+      color: var(--ink);
+      opacity: 0.04;
+    }
+
+    .moment-chapter__pair-header .moment-chapter__testimonial-title {
+      color: var(--ink);
+    }
+
+    .moment-chapter__pair-header .moment-chapter__testimonial-title::before {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (max-width: 959px) {
+      .moment-chapter__pair {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+        row-gap: clamp(28px, 5vh, 48px);
+      }
+      .moment-chapter__pair > .moment-chapter__pair-img:first-child,
+      .moment-chapter__pair > .moment-chapter__pair-img:last-child,
+      .moment-chapter__pair-cta { grid-column: 1; grid-row: auto; }
+      .moment-chapter__pair-img { height: max(260px, 56vw); margin-top: 0; }
+      .moment-chapter__pair-cta { margin-top: 0; }
+    }
+
+    @media (max-width: 767px) {
+      .moment-chapter { padding: clamp(80px, 12vh, 120px) 6vw; }
+      .moment-chapter__gallery {
+        grid-template-columns: 1fr;
+        align-items: stretch;
+      }
+      .moment-chapter__img--side,
+      .moment-chapter__img--center { height: max(234px, 62vw); filter: none; }
+      .moment-chapter__pair-img { height: max(200px, 52vw); }
+      .moment-chapter__pair-cta { margin-top: clamp(16px, 3vh, 24px); }
+    }
+
+    /* ─── STORIES ───────────────────────────────────────────────── */
+    .story {
+      background: var(--paper);
+      padding: clamp(100px, 14vh, 160px) clamp(40px, 7vw, 120px);
+    }
+
+    .story + .story {
+      border-top: 1px solid rgba(154, 128, 103, 0.12);
+    }
+
+    .story__opener {
+      max-width: 78vw;
+      margin: 0 auto clamp(48px, 6vh, 72px);
+      height: clamp(480px, 68vh, 800px);
+      overflow: hidden;
+    }
+
+    .story__opener img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      display: block;
+    }
+
+    .story__header {
+      max-width: 1200px;
+      margin: 0 auto clamp(40px, 5vh, 60px);
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      padding-bottom: 14px;
+      border-bottom: 1px solid rgba(154, 128, 103, 0.18);
+    }
+
+    .story__name {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(26px, 2.6vw, 40px);
+      letter-spacing: 0;
+      color: var(--ink);
+    }
+
+    .story__meta {
+      font-family: 'Jost', sans-serif;
+      font-weight: 200;
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .story__spread {
+      max-width: 1200px;
+      margin: 0 auto clamp(48px, 6vh, 72px);
+      display: grid;
+      grid-template-columns: 46fr 50fr;
+      grid-template-rows: 1fr;
+      gap: clamp(12px, 2vw, 24px);
+      height: clamp(460px, 68vh, 800px);
+      overflow: hidden;
+    }
+
+    .story__spread-left {
+      overflow: hidden;
+    }
+
+    .story__spread-left img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      object-position: center 25%;
+    }
+
+    .story__spread-right {
+      display: grid;
+      grid-template-rows: 1.2fr 0.8fr;
+      gap: clamp(12px, 2vw, 24px);
+    }
+
+    .story__spread-right > div {
+      overflow: hidden;
+    }
+
+    .story__spread-right > div img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .story__spread-right > div:nth-child(1) img { object-position: center 20%; }
+    .story__spread-right > div:nth-child(2) img { object-position: center 50%; }
+
+    .story__body {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: clamp(24px, 3vh, 36px);
+      text-align: center;
+    }
+
+    .story--aycan .story__body {
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .story__para {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: clamp(12px, 1.05vw, 14px);
+      line-height: 1.92;
+      letter-spacing: 0.02em;
+      color: rgba(28,23,20,0.62);
+      max-width: 540px;
+    }
+
+    .story__link {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 9.5px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(28,23,20,0.55);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .story__link:hover { color: var(--ink); }
+
+    .story__punctuation {
+      margin: clamp(48px, 6vh, 72px)
+              calc(clamp(40px, 7vw, 120px) * -1);
+      height: clamp(400px, 60vh, 700px);
+      overflow: hidden;
+    }
+
+    .story__punctuation img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      object-position: center 40%;
+    }
+
+    @media (max-width: 767px) {
+      .story { padding: clamp(80px, 12vh, 120px) 6vw; }
+      .story__opener { max-width: 100%; height: max(320px, 75vw); }
+      .story__spread {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        height: auto;
+        overflow: visible;
+      }
+      .story__spread-left { height: max(280px, 75vw); }
+      .story__spread-right { grid-template-rows: auto auto; }
+      .story__spread-right > div { height: max(200px, 55vw); }
+      .story__punctuation {
+        margin-left: -6vw;
+        margin-right: -6vw;
+        height: max(280px, 65vw);
+      }
+    }
+
+    /* ─── HIGHLIGHTS / GALLERY ─────────────────────────────────── */
+    .highlights {
+      background: var(--paper);
+      padding: clamp(100px, 14vh, 160px) 0;
+    }
+
+    .highlights__full {
+      height: clamp(380px, 68vh, 760px);
+      overflow: hidden;
+    }
+
+    .highlights__full img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .highlights__gap {
+      height: clamp(40px, 6vh, 72px);
+    }
+
+    .highlights__pair {
+      display: grid;
+      grid-template-rows: 1fr;
+      gap: clamp(12px, 2vw, 24px);
+      height: clamp(380px, 62vh, 700px);
+      overflow: hidden;
+      padding: 0 clamp(16px, 2vw, 28px);
+    }
+
+    .highlights__pair--ab { grid-template-columns: 47fr 49fr; }
+    .highlights__pair--ba { grid-template-columns: 49fr 47fr; }
+
+    .highlights__col {
+      overflow: hidden;
+    }
+
+    .highlights__col img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .highlights__stack {
+      display: grid;
+      grid-template-rows: 1.25fr 0.75fr;
+      gap: clamp(12px, 2vw, 24px);
+      height: 100%;
+    }
+
+    .highlights__stack > div {
+      overflow: hidden;
+    }
+
+    .highlights__stack > div img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .highlights__solo {
+      max-width: calc(100% - clamp(32px, 4vw, 56px));
+      margin: 0 auto;
+      height: clamp(360px, 54vh, 660px);
+      overflow: hidden;
+    }
+
+    .highlights__solo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    @media (max-width: 767px) {
+      .highlights { padding: clamp(80px, 12vh, 120px) 0; }
+      .highlights__full { height: max(280px, 70vw); }
+      .highlights__pair {
+        grid-template-columns: 1fr !important;
+        grid-template-rows: auto;
+        height: auto;
+        overflow: visible;
+        padding: 0 6vw;
+      }
+      .highlights__col { height: max(260px, 70vw); }
+      .highlights__stack { grid-template-rows: auto auto; height: auto; }
+      .highlights__stack > div { height: max(200px, 55vw); }
+      .highlights__solo { max-width: 90vw; height: max(260px, 65vw); }
+    }
+
+    /* ─── TESTIMONIAL BRIDGE ────────────────────────────────────── */
+    .testimonial-bridge {
+      background: var(--paper);
+      padding: clamp(110px, 14vh, 150px) clamp(40px, 7vw, 120px) clamp(36px, 4vh, 52px);
+      margin-top: clamp(-150px, -13vh, -120px);
+      position: relative;
+      z-index: 0;
+    }
+
+    .testimonial-bridge__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .testimonial-bridge .moment-chapter__testimonial {
+      grid-column: unset;
+      grid-row: unset;
+    }
+
+    .testimonial-bridge .moment-chapter__quote {
+      top: -20px;
+      margin-top: clamp(20px, 3vh, 32px);
+    }
+
+    .testimonial-bridge .moment-chapter__quote p {
+      color: rgba(28, 23, 20, 0.82);
+    }
+
+    .testimonial-bridge .moment-chapter__quote-author {
+      color: rgba(28, 23, 20, 0.50);
+      opacity: 1;
+    }
+
+    /* ─── INQUIRY ───────────────────────────────────────────────── */
+    .inquiry {
+      background: var(--paper);
+      padding: clamp(120px, 16vh, 180px) clamp(40px, 7vw, 120px);
+      border-top: 1px solid rgba(154, 128, 103, 0.18);
+    }
+
+    .inquiry__inner {
+      max-width: 480px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .inquiry__label {
+      display: block;
+      font-family: 'Jost', sans-serif;
+      font-weight: 200;
+      font-size: 9px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: clamp(32px, 4vh, 48px);
+    }
+
+    .inquiry__headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(30px, 3vw, 44px);
+      line-height: 1.15;
+      letter-spacing: 0;
+      color: var(--ink);
+      margin: 0 0 clamp(24px, 3vh, 36px);
+    }
+
+    .inquiry__body {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: clamp(12px, 1.05vw, 13.5px);
+      line-height: 1.88;
+      letter-spacing: 0.02em;
+      color: rgba(28,23,20,0.62);
+      margin-bottom: clamp(48px, 6vh, 72px);
+    }
+
+    .inquiry__form {
+      width: 100%;
+      text-align: left;
+    }
+
+    .inquiry__field {
+      width: 100%;
+      margin-bottom: clamp(28px, 3.5vh, 40px);
+    }
+
+    .inquiry__field input,
+    .inquiry__field textarea {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(154, 128, 103, 0.22);
+      padding: 10px 0;
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+      outline: none;
+      resize: none;
+      appearance: none;
+      -webkit-appearance: none;
+      border-radius: 0;
+      transition: border-color 0.3s ease;
+      display: block;
+    }
+
+    .inquiry__field textarea {
+      min-height: 80px;
+    }
+
+    .inquiry__field input::placeholder,
+    .inquiry__field textarea::placeholder {
+      font-family: 'Jost', sans-serif;
+      font-weight: 200;
+      font-size: 10.5px;
+      letter-spacing: 0.1em;
+      color: rgba(28,23,20,0.32);
+    }
+
+    .inquiry__field input:focus,
+    .inquiry__field textarea:focus {
+      border-bottom-color: var(--accent);
+    }
+
+    .inquiry__actions {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: clamp(28px, 3.5vh, 40px);
+    }
+
+    .inquiry__submit {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 9.5px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      appearance: none;
+      -webkit-appearance: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .inquiry__submit:hover { opacity: 0.5; }
+
+    .inquiry__closing {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(14px, 1.2vw, 17px);
+      letter-spacing: 0.02em;
+      color: rgba(28,23,20,0.38);
+      margin-top: clamp(40px, 5vh, 60px);
+      display: block;
+    }
+
+    /* ─── FOOTER ────────────────────────────────────────────────── */
+    .site-footer {
+      background: #262D25;
+      padding: clamp(28px, 3.5vh, 44px) clamp(40px, 7vw, 120px) clamp(28px, 3.5vh, 44px);
+    }
+
+    .site-footer::before {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--accent);
+      opacity: 0.45;
+      margin: 0 auto clamp(44px, 6vh, 64px);
+    }
+
+    .footer-statement {
+      text-align: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(17px, 2.2vw, 34px);
+      color: rgba(245, 239, 230, 0.82);
+      letter-spacing: 0.01em;
+      word-spacing: -0.06em;
+      line-height: 1.3;
+      margin: 0;
+      white-space: nowrap;
+    }
+
+    .footer-dot {
+      color: var(--accent);
+      font-size: 1.35em;
+      line-height: 1;
+      vertical-align: baseline;
+    }
+
+    .site-footer__inner {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: clamp(24px, 3vw, 52px);
+    }
+
+    .site-footer__left {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(11px, 1.3vh, 16px);
+    }
+
+    .site-footer__name {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(22px, 2.2vw, 32px);
+      letter-spacing: 0.03em;
+      color: rgba(245, 239, 230, 0.88);
+      line-height: 1;
+    }
+
+    .site-footer__title {
+      font-family: 'Jost', sans-serif;
+      font-weight: 200;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .site-footer__location {
+      font-family: 'Jost', sans-serif;
+      font-weight: 200;
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: rgba(245, 239, 230, 0.28);
+    }
+
+    .site-footer__right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: clamp(11px, 1.3vh, 16px);
+      justify-self: end;
+    }
+
+    .site-footer__link {
+      font-family: 'Jost', sans-serif;
+      font-weight: 200;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(245, 239, 230, 0.38);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .site-footer__link:hover { color: var(--accent); }
+
+    .site-footer__copy {
+      font-family: 'Jost', sans-serif;
+      font-weight: 200;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      color: rgba(245, 239, 230, 0.18);
+      margin-top: clamp(4px, 0.5vh, 8px);
+    }
+
+    @media (max-width: 767px) {
+      .footer-statement { white-space: normal; font-size: clamp(16px, 4.5vw, 22px); }
+      .site-footer__inner {
+        grid-template-columns: 1fr;
+        gap: clamp(36px, 5vh, 52px);
+      }
+      .footer-statement { order: -1; text-align: left; }
+      .site-footer__right { align-items: flex-start; justify-self: start; }
+    }
+
+    /* accent word — one meaningful word per key headline */
+    .aw { color: var(--accent); }
+    /* on the accent background the word merges — override to white */
+    .editorial .aw { color: #ffffff; }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+
+    <img
+      class="hero__image"
+      src="./hero/DSC05125 (3).jpg"
+      alt=""
+      aria-hidden="true"
+    >
+
+    <div class="hero__overlay" aria-hidden="true"></div>
+
+    <nav class="nav" role="navigation">
+      <ul class="nav__menu">
+        <li><a href="#">Stories</a></li>
+        <li><a href="#">Artist</a></li>
+        <li><a href="#">Highlights</a></li>
+        <li><a href="#">Inquiry</a></li>
+      </ul>
+    </nav>
+
+    <div class="hero__text">
+      <h1 class="hero__headline">
+        <em>Before time changes it.</em>
+      </h1>
+      <p class="hero__byline">Wedding Photography by Didem Kanteper</p>
+    </div>
+
+    <div class="scroll-indicator" aria-hidden="true">
+      <div class="scroll-indicator__line"></div>
+      <span class="scroll-indicator__label">Scroll</span>
+    </div>
+
+  </section>
+
+  <!-- ─── BRIDGE ──────────────────────────────────────────────── -->
+  <section class="note">
+    <div class="note__inner">
+      <p class="note__statement">The moments that remain.</p>
+    </div>
+  </section>
+
+  <!-- ─── EDITORIAL WEDDING STORYTELLING ──────────────────────── -->
+  <section class="editorial">
+    <div class="editorial__inner">
+
+      <div class="editorial__text">
+        <span class="editorial__label">Editorial Wedding Storytelling</span>
+        <h2 class="editorial__headline">A portrait beyond the wedding <span class="aw">day.</span></h2>
+        <p class="editorial__body">
+          Zeitlose Hochzeitsfotografie mit einem Blick für echte Emotionen, elegante Details und die leisen Momente dazwischen.
+        </p>
+        <p class="editorial__body">
+          Ich begleite Hochzeiten auf eine natürliche und unaufdringliche Weise – damit Bilder entstehen, die nicht nur zeigen, wie euer Tag aussah, sondern wie er sich angefühlt hat.
+        </p>
+
+        <div class="editorial__cta-wrap">
+          <span class="editorial__cta-line" aria-hidden="true"></span>
+          <a href="#inquiry" class="editorial__cta">Inquire Now</a>
+        </div>
+      </div>
+
+      <div class="editorial__image-col">
+        <img
+          class="editorial__image"
+          src="./LEONORA AND DENIS/DSC01909.jpg"
+          alt=""
+          aria-hidden="true"
+          style="object-position: center 20%;"
+        >
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── CURATED IMAGE SEQUENCE ──────────────────────────────── -->
+  <section class="sequence">
+
+    <div class="sequence__intro">
+      <h2 class="sequence__headline">The feeling between <span class="aw">the frames.</span></h2>
+      <p class="sequence__body">
+        Jede Hochzeit erzählt mehr als das, was sichtbar ist. Zwischen Licht, Bewegung, Blicken und Details entsteht die Atmosphäre, die einen Tag unvergesslich macht.
+      </p>
+    </div>
+
+    <div class="sequence__grid">
+      <div class="sequence__img">
+        <img src="./LEONORA AND DENIS/DSC01929.jpg" alt="" aria-hidden="true" style="object-position: center 20%;">
+      </div>
+      <div class="sequence__img">
+        <img src="./LEONORA AND DENIS/DSC00621-2.jpg" alt="" aria-hidden="true" style="object-position: center 55%;">
+      </div>
+      <div class="sequence__img">
+        <img src="./LEONORA AND DENIS/DSC00464.jpg" alt="" aria-hidden="true" style="object-position: center 45%;">
+      </div>
+      <div class="sequence__img">
+        <img src="./LEONORA AND DENIS/DSC01757.jpg" alt="" aria-hidden="true" style="object-position: center 25%;">
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ─── THE STORY ARTIST ─────────────────────────────────────── -->
+  <section class="artist" id="artist">
+    <div class="artist__inner">
+
+      <div class="artist__portrait-wrap">
+        <div class="artist__portrait-placeholder">
+          <span>Portrait<br>Juni 2026</span>
+        </div>
+      </div>
+
+      <div class="artist__text">
+        <span class="artist__label">The Story Artist</span>
+
+        <h2 class="artist__headline">
+          I photograph weddings not only as they look — but as they feel.
+        </h2>
+
+        <p class="artist__para">
+          Hi, ich bin Didem — Hochzeitsfotografin mit einer Liebe für ehrliche Emotionen, zeitlose Bildsprache und stilvolle Ästhetik.
+        </p>
+        <p class="artist__para">
+          Inspiriert von Licht, Bewegung und echten Verbindungen entstehen Bilder, die sich natürlich, emotional und zugleich elegant anfühlen.
+        </p>
+        <p class="artist__para">
+          Mit einem feinen Gespür für Details und einer ruhigen Präsenz halte ich die Augenblicke fest, die oft ganz nebenbei passieren — ein Blick, eine Berührung, das Gefühl eines Moments.
+        </p>
+        <p class="artist__para">
+          Denn Fotografie bewahrt nicht nur, wie ein Tag aussah.
+        </p>
+        <p class="artist__para">
+          Sondern wie er sich angefühlt hat.
+        </p>
+
+        <a href="#" class="artist__cta">more about didem</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── VIDEO INTERLUDE ───────────────────────────────────────── -->
+  <section class="video-interlude">
+    <div class="video-interlude__frame">
+      <video
+        class="video-interlude__video"
+        src="./video/VideoLD.mov"
+        autoplay
+        muted
+        loop
+        playsinline
+      ></video>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       MOMENT CHAPTER — editorial text + three-image gallery
+  ═══════════════════════════════════════════════════════════════ -->
+
+  <section class="moment-chapter">
+
+    <!-- Centered headline -->
+    <div class="moment-chapter__header">
+      <span class="moment-chapter__line1">Every <span class="aw">Moment</span></span>
+      <span class="moment-chapter__line2">becomes a memory</span>
+    </div>
+
+    <!-- Centered body text -->
+    <p class="moment-chapter__body">
+      Nicht jeder Augenblick kündigt sich an. Manche entstehen zwischen den Worten, im Lachen, in einem Blick, der länger hält als erwartet. Diese Momente — flüchtig, ehrlich, unvergesslich — sind das, was bleibt.
+    </p>
+
+    <div class="moment-chapter__canvas">
+
+      <!-- Three-column gallery: BW | Color (larger) | BW -->
+      <div class="moment-chapter__gallery">
+
+        <div class="moment-chapter__img moment-chapter__img--side">
+          <img src="./Aycan & Ergin/DSC01769.jpg" alt="" aria-hidden="true" style="object-position: center 30%;">
+        </div>
+
+        <div class="moment-chapter__img moment-chapter__img--center">
+          <img src="./Aycan & Ergin/DSC00823 (1).jpg" alt="" aria-hidden="true" style="object-position: center center;">
+        </div>
+
+        <div class="moment-chapter__img moment-chapter__img--side">
+          <img src="./Aycan & Ergin/DSC00027.jpg" alt="" aria-hidden="true" style="object-position: center 25%;">
+        </div>
+
+      </div>
+
+      <div class="moment-chapter__pair">
+        <div class="moment-chapter__pair-img">
+          <img src="./Aycan & Ergin/DSC01071.jpg" alt="" aria-hidden="true" style="object-position: center 35%;">
+        </div>
+        <a href="#" class="moment-chapter__pair-cta">the full love story</a>
+        <div class="moment-chapter__pair-img">
+          <img src="./Aycan & Ergin/DSC01096.jpg" alt="" aria-hidden="true" style="object-position: center 40%;">
+        </div>
+        <div class="moment-chapter__testimonial-header moment-chapter__pair-header">
+          <h2 class="moment-chapter__testimonial-title">Words from the <span class="aw">Heart</span></h2>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ─── TESTIMONIAL BRIDGE ───────────────────────────────────── -->
+  <section class="testimonial-bridge">
+    <div class="testimonial-bridge__inner">
+      <div class="moment-chapter__testimonial">
+        <blockquote class="moment-chapter__quote">
+          <p>„Liebste Didem,</p>
+          <p>wir sind unendlich dankbar, dass du uns an unserem Hochzeitstag begleitet hast. Schon vom ersten Moment an hatten wir das Gefühl, nicht einfach nur eine Fotografin an unserer Seite zu haben, sondern einen Menschen, der mit ganz viel Herz, Ruhe und Feingefühl Teil dieses besonderen Tages geworden ist.</p>
+          <p>Du hast es geschafft, all die großen Emotionen und kleinen, kostbaren Augenblicke so authentisch und ästhetisch festzuhalten, dass wir beim Anschauen der Bilder jedes Mal wieder mitten in diesem Tag sind." <span class="moment-chapter__quote-author">— Aycan &amp; Ergin</span></p>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+
+      <div class="site-footer__left">
+        <span class="site-footer__name">Didem Kanteper</span>
+        <span class="site-footer__title">Editorial Wedding Photography</span>
+        <span class="site-footer__location">Based in Germany&nbsp;•&nbsp;Available Worldwide</span>
+      </div>
+
+      <p class="footer-statement">for the ONES who want to REMEMBER how it FELT<span class="footer-dot">.</span></p>
+
+      <div class="site-footer__right">
+        <a href="#" class="site-footer__link">Instagram</a>
+        <a href="#" class="site-footer__link">Impressum</a>
+        <a href="#" class="site-footer__link">Datenschutz</a>
+        <span class="site-footer__copy">&copy; 2026 Didem Kanteper</span>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>

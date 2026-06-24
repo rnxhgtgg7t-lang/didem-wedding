@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anfrage — Didem Kanteper</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&family=Jost:ital,wght@0,200;0,300;0,400;1,400&family=Pinyon+Script&display=swap" rel="stylesheet">
+  <style>
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --paper:  #F5EFE6;
+      --accent: #9A8067;
+      --canvas: #262D25;
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      background: var(--canvas);
+      color: #F5EFE6;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Nav ─────────────────────────────────────────── */
+    .contact-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(32px, 6vw, 96px);
+      height: 72px;
+      background: rgba(38, 45, 37, 0.94);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .contact-nav__wordmark {
+      font-family: 'Pinyon Script', cursive;
+      font-size: 22px;
+      color: rgba(245, 239, 230, 0.88);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-nav__wordmark:hover { color: var(--paper); }
+
+    .contact-nav__back {
+      font-family: 'Jost', sans-serif;
+      font-weight: 200;
+      font-size: 10px;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: rgba(245, 239, 230, 0.78);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-nav__back:hover { color: var(--accent); }
+
+    /* ── Page layout ─────────────────────────────────── */
+    .contact-page {
+      min-height: 100vh;
+      padding: clamp(110px, 15vh, 150px) clamp(24px, 5vw, 80px) clamp(80px, 11vh, 130px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* ── Intro block ─────────────────────────────────── */
+    .contact-info {
+      width: 100%;
+      max-width: min(92vw, 880px);
+      margin-bottom: clamp(72px, 10vh, 120px);
+      text-align: center;
+    }
+
+    .contact-info__label {
+      font-family: 'Jost', sans-serif;
+      font-weight: 200;
+      font-size: 9px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: rgba(245, 239, 230, 0.68);
+      margin-bottom: clamp(20px, 2.5vh, 30px);
+    }
+
+    .contact-info__headline {
+      font-family: 'EB Garamond', serif;
+      font-weight: 400;
+      font-style: italic;
+      font-size: clamp(36px, 4.5vw, 64px);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      color: var(--paper);
+      margin-bottom: clamp(26px, 3.2vh, 38px);
+      white-space: nowrap;
+    }
+
+    .contact-info__divider {
+      width: 36px;
+      height: 1px;
+      background: var(--accent);
+      opacity: 0.72;
+      margin: 0 auto clamp(22px, 2.8vh, 34px);
+    }
+
+    .contact-info__body {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 13px;
+      line-height: 1.90;
+      letter-spacing: 0.015em;
+      color: rgba(245, 239, 230, 0.84);
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    .contact-info__body p + p { margin-top: 2.2em; }
+
+    /* ── Form statement ─────────────────────────────── */
+    .form-statement {
+      font-family: 'EB Garamond', serif;
+      font-weight: 400;
+      font-style: italic;
+      font-size: clamp(22px, 2.4vw, 36px);
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      color: var(--paper);
+      text-align: center;
+      width: 100%;
+      max-width: min(88vw, 1050px);
+      margin-bottom: clamp(32px, 4.5vh, 52px);
+    }
+
+    .form-statement::after {
+      content: '';
+      display: block;
+      width: 120px;
+      height: 1px;
+      background: var(--paper);
+      opacity: 0.32;
+      margin: clamp(14px, 1.8vh, 20px) auto 0;
+    }
+
+    /* ── Form ────────────────────────────────────────── */
+    .contact-form {
+      width: 100%;
+      max-width: min(88vw, 1050px);
+    }
+
+    .contact-form form {
+      background: var(--paper);
+      padding: clamp(40px, 5.5vh, 64px) clamp(48px, 6vw, 80px);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(20px, 3vw, 48px);
+    }
+
+    .form-field {
+      margin-bottom: clamp(20px, 2.8vh, 32px);
+    }
+
+    .form-label {
+      display: block;
+      font-family: 'Jost', sans-serif;
+      font-weight: 400;
+      font-size: 10px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: #1C1714;
+      opacity: 1;
+      margin-bottom: 10px;
+    }
+
+    .form-input,
+    .form-textarea {
+      display: block;
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(28, 23, 20, 0.28);
+      padding: 10px 0 12px;
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 15px;
+      letter-spacing: 0.02em;
+      color: #1C1714;
+      opacity: 1;
+      outline: none;
+      transition: border-color 0.35s ease;
+      -webkit-appearance: none;
+      border-radius: 0;
+    }
+
+    .form-input::placeholder,
+    .form-textarea::placeholder {
+      color: rgba(28, 23, 20, 0.38);
+      font-weight: 300;
+      font-size: 14px;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      border-bottom-color: var(--accent);
+    }
+
+    .form-textarea {
+      min-height: 80px;
+      resize: none;
+      line-height: 1.72;
+    }
+
+    /* ── Checkbox ────────────────────────────────────── */
+    .form-consent {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: clamp(22px, 3vh, 36px);
+    }
+
+    .form-consent__box {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 14px;
+      height: 14px;
+      min-width: 14px;
+      border: 1px solid rgba(28, 23, 20, 0.40);
+      background: transparent;
+      cursor: pointer;
+      margin-top: 2px;
+      transition: border-color 0.3s ease, background 0.3s ease;
+    }
+
+    .form-consent__box:checked {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .form-consent__text {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 13px;
+      line-height: 1.68;
+      letter-spacing: 0.01em;
+      color: rgba(28, 23, 20, 0.72);
+    }
+
+    .form-consent__text a {
+      color: #1C1714;
+      text-decoration: underline;
+      text-decoration-color: rgba(154, 128, 103, 0.45);
+      text-underline-offset: 3px;
+    }
+
+    /* ── Submit ──────────────────────────────────────── */
+    .form-submit {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 11px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: #1C1714;
+      opacity: 1;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: color 0.3s ease;
+    }
+
+    .form-submit:hover { color: var(--accent); }
+
+    /* ── Footer ─────────────────────────────────────── */
+    .site-footer {
+      background: var(--canvas);
+      padding: clamp(52px, 7vh, 80px) clamp(40px, 7vw, 120px) clamp(36px, 4.5vh, 52px);
+    }
+
+    .site-footer__divider {
+      width: 100%;
+      height: 1px;
+      background: #F5EFE6;
+      margin-bottom: clamp(8px, 1vh, 12px);
+    }
+
+    .site-footer__row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .site-footer__links {
+      display: flex;
+      gap: clamp(20px, 2.5vw, 36px);
+    }
+
+    .site-footer__link {
+      font-family: 'Jost', sans-serif;
+      font-weight: 200;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #F5EFE6;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .site-footer__link:hover { color: var(--accent); }
+
+    .site-footer__copy {
+      font-family: 'Pinyon Script', cursive;
+      font-weight: 400;
+      font-size: 20px;
+      letter-spacing: 0;
+      color: #F5EFE6;
+    }
+
+    /* ── Mobile ──────────────────────────────────────── */
+    @media (max-width: 767px) {
+      .contact-info__headline { white-space: normal; }
+      .contact-page { grid-template-columns: 1fr; }
+      .contact-info { padding-right: 0; border-right: none; }
+    }
+
+    @media (max-width: 600px) {
+      .form-row { grid-template-columns: 1fr; }
+      .site-footer__row { flex-direction: column; align-items: flex-start; gap: clamp(16px, 2vh, 24px); }
+    }
+
+  
+    /* ── Page transitions ───────────────────────────── */
+    @keyframes page-in {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    body { animation: page-in 0.5s ease forwards; }
+    body.is-leaving { opacity: 0; transition: opacity 0.35s ease; }
+
+  </style>
+</head>
+<body>
+
+  <header class="contact-nav">
+    <a href="hero-comparison.html" class="contact-nav__back">← Zurück</a>
+  </header>
+
+  <main class="contact-page">
+
+    <!-- Left: info -->
+    <aside class="contact-info">
+      <p class="contact-info__label">Kontakt</p>
+      <h1 class="contact-info__headline">Let's Create Some Magic.</h1>
+      <div class="contact-info__divider"></div>
+      <div class="contact-info__body">
+        <p>Eure Hochzeit ist mehr als ein Tag.</p>
+        <p>Sie besteht aus den Blicken, Berührungen und stillen Momenten dazwischen.</p>
+        <p>Wenn ihr euch eine fotografische Begleitung wünscht, die nicht nur festhält, wie alles aussah, sondern wie es sich angefühlt hat, erzählt mir von euren Plänen.</p>
+        <p>Ich freue mich darauf, eure Geschichte kennenzulernen.</p>
+      </div>
+    </aside>
+
+    <p class="form-statement">every story begins with a conversation.</p>
+
+    <!-- Right: form -->
+    <section class="contact-form">
+      <form action="#" method="post" novalidate>
+
+        <div class="form-field">
+          <label class="form-label" for="name">Vor- und Nachname</label>
+          <input class="form-input" id="name" name="name" type="text" autocomplete="name">
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label class="form-label" for="email">E-Mail</label>
+            <input class="form-input" id="email" name="email" type="email" autocomplete="email">
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="phone">Telefonnummer</label>
+            <input class="form-input" id="phone" name="phone" type="tel" autocomplete="tel">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label class="form-label" for="location">Event Location</label>
+            <input class="form-input" id="location" name="location" type="text">
+          </div>
+          <div class="form-field">
+            <label class="form-label" for="datum">Event Datum</label>
+            <input class="form-input" id="datum" name="datum" type="text" placeholder="TT.MM.JJJJ">
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label class="form-label" for="nachricht">Nachricht</label>
+          <textarea class="form-textarea" id="nachricht" name="nachricht" rows="5" placeholder="Erzählt mir von eurer Hochzeit — eure Vision, eure Wünsche, was euch bewegt …"></textarea>
+        </div>
+
+        <div class="form-field">
+          <label class="form-label" for="gefunden">Wie habt ihr mich gefunden?</label>
+          <input class="form-input" id="gefunden" name="gefunden" type="text">
+        </div>
+
+        <div class="form-consent">
+          <input class="form-consent__box" type="checkbox" id="dsgvo" name="dsgvo" required>
+          <label class="form-consent__text" for="dsgvo">
+            Ich stimme zu, dass meine Angaben zur Kontaktaufnahme und für Rückfragen gespeichert werden. Weitere Informationen findet ihr in der <a href="#">Datenschutzerklärung</a>.
+          </label>
+        </div>
+
+        <button class="form-submit" type="submit">Anfrage Absenden</button>
+
+      </form>
+    </section>
+
+  </main>
+
+
+  <footer class="site-footer">
+    <div class="site-footer__divider"></div>
+    <div class="site-footer__row">
+      <div class="site-footer__links">
+        <a href="contact.html" class="site-footer__link">Kontakt</a>
+        <a href="https://www.instagram.com/didemkantepergraphy/" target="_blank" rel="noopener" class="site-footer__link">Instagram</a>
+        <a href="impressum.html" class="site-footer__link">Impressum</a>
+        <a href="datenschutz.html" class="site-footer__link">Datenschutz</a>
+      </div>
+      <span class="site-footer__copy">&copy; 2026 Didem Kanteper</span>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('click', function(e) {
+      var link = e.target.closest('a[href]');
+      if (!link) return;
+      var href = link.getAttribute('href');
+      if (!href || href.charAt(0) === '#' || href.indexOf('http') === 0 || href.indexOf('mailto:') === 0 || href.indexOf('tel:') === 0) return;
+      e.preventDefault();
+      document.body.classList.add('is-leaving');
+      setTimeout(function() { window.location.href = href; }, 350);
+    });
+  </script>
+</body>
+</html>

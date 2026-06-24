@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Highlights — Didem Kanteper</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=EB+Garamond:ital,wght@0,400;1,400&family=Jost:ital,wght@0,200;0,300;0,400&family=Pinyon+Script&display=swap" rel="stylesheet">
+  <style>
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --paper:  #F5EFE6;
+      --ink:    #1C1714;
+      --accent: #9A8067;
+      --canvas: #262D25;
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; }
+
+    /* ── Hero ─────────────────────────────────────────── */
+    .story-hero {
+      position: relative;
+      height: 100vh;
+      background: var(--canvas);
+      overflow: hidden;
+    }
+
+    .story-hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 25%;
+    }
+
+    .story-hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(38, 45, 37, 0.66);
+      pointer-events: none;
+    }
+
+    .story-hero__content {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 clamp(24px, 6vw, 120px);
+    }
+
+    .story-hero__label {
+      font-family: 'Jost', sans-serif;
+      font-weight: 200;
+      font-size: 9px;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: rgba(245, 239, 230, 1);
+      margin-bottom: clamp(18px, 2.5vh, 28px);
+    }
+
+    .story-hero__headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(52px, 8vw, 120px);
+      line-height: 1.0;
+      letter-spacing: 0.04em;
+      color: var(--paper);
+      margin-bottom: clamp(20px, 2.8vh, 32px);
+    }
+
+    .story-hero__divider {
+      width: 30px;
+      height: 1px;
+      background: rgba(245, 239, 230, 0.40);
+      margin-bottom: clamp(20px, 2.8vh, 32px);
+    }
+
+    .story-hero__body {
+      font-family: 'Jost', sans-serif;
+      font-weight: 200;
+      font-size: clamp(10px, 1.1vw, 13px);
+      letter-spacing: 0.18em;
+      color: rgba(245, 239, 230, 0.95);
+      max-width: 440px;
+      line-height: 1.8;
+    }
+
+    .story-hero__scroll {
+      position: absolute;
+      bottom: clamp(32px, 4.5vh, 52px);
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .story-hero__scroll-line {
+      width: 1px;
+      height: 44px;
+      background: rgba(245, 239, 230, 0.42);
+      transform-origin: top center;
+      animation: scrollDraw 2.2s ease-in-out infinite;
+    }
+
+    @keyframes scrollDraw {
+      0%   { transform: scaleY(0); transform-origin: top center; opacity: 1; }
+      45%  { transform: scaleY(1); transform-origin: top center; opacity: 1; }
+      46%  { transform-origin: bottom center; }
+      90%  { transform: scaleY(0); transform-origin: bottom center; opacity: 1; }
+      100% { transform: scaleY(0); opacity: 0; }
+    }
+
+    .story-hero__scroll-text {
+      font-family: 'Jost', sans-serif;
+      font-weight: 200;
+      font-size: 8px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: rgba(245, 239, 230, 0.40);
+    }
+
+    /* ── Gallery ──────────────────────────────────────── */
+    .gallery {
+      background: var(--paper);
+      padding: clamp(40px, 5.5vh, 64px) 0 clamp(80px, 11vh, 130px);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(8px, 1vw, 14px);
+      padding: 0 clamp(24px, 4vw, 80px);
+    }
+
+    .gallery-grid img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: center center;
+    }
+
+    @media (max-width: 767px) {
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ── Footer ───────────────────────────────────────── */
+    .site-footer {
+      background: var(--canvas);
+      padding: clamp(52px, 7vh, 80px) clamp(40px, 7vw, 120px) clamp(36px, 4.5vh, 52px);
+    }
+
+    .site-footer__divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(245, 239, 230, 0.35);
+      margin-bottom: clamp(8px, 1vh, 12px);
+    }
+
+    .site-footer__row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .site-footer__links {
+      display: flex;
+      gap: clamp(20px, 2.5vw, 36px);
+    }
+
+    .site-footer__link {
+      font-family: 'Jost', sans-serif;
+      font-weight: 200;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(245, 239, 230, 0.92);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .site-footer__link:hover { color: var(--accent); }
+
+    .site-footer__copy {
+      font-family: 'Pinyon Script', cursive;
+      font-weight: 400;
+      font-size: 20px;
+      letter-spacing: 0;
+      color: rgba(245, 239, 230, 0.55);
+    }
+
+    /* ── Nav ─────────────────────────────────────────── */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 56px;
+      height: 72px;
+    }
+
+    .nav__controls {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      margin-left: auto;
+    }
+
+    .nav__contact,
+    .nav__menu-btn {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 10px;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: #ffffff;
+      text-decoration: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: color 0.3s ease;
+    }
+
+    .nav__contact:hover,
+    .nav__menu-btn:hover {
+      color: rgba(245, 239, 230, 0.95);
+    }
+
+    /* ── Menu overlay ─────────────────────────────────── */
+    .menu-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.52);
+      z-index: 39;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.45s ease;
+    }
+
+    .menu-overlay.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* ── Menu panel ───────────────────────────────────── */
+    .menu-panel {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      background: #262D25;
+      z-index: 40;
+      display: flex;
+      flex-direction: row;
+      transform: translateY(-100%);
+      transition: transform 0.58s cubic-bezier(0.77, 0, 0.18, 1);
+    }
+
+    .menu-panel.is-open {
+      transform: translateY(0);
+    }
+
+    .menu-panel::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: clamp(64px, 10vh, 96px);
+      background: var(--paper);
+      pointer-events: none;
+    }
+
+    .menu-panel.is-closing {
+      transform: translateY(100%);
+    }
+
+    .menu-panel::after {
+      content: '';
+      position: absolute;
+      top: clamp(32px, 8vh, 64px);
+      left: 67%;
+      width: 1px;
+      height: 60vh;
+      background: rgba(245, 239, 230, 0.40);
+      transform: scaleY(0);
+      transform-origin: top center;
+      transition: transform 1.10s cubic-bezier(0.25, 0, 0.10, 1) 0.40s;
+      pointer-events: none;
+    }
+
+    .menu-panel.is-open::after {
+      transform: scaleY(1);
+    }
+
+    .menu-panel.is-closing::after {
+      transition: none;
+      transform: scaleY(0);
+    }
+
+    .menu-panel__close {
+      position: absolute;
+      top: clamp(22px, 2.8vh, 32px);
+      right: clamp(32px, 3.5vw, 56px);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 12px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: #9A8067;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: color 0.25s ease;
+    }
+
+    .menu-panel__close:hover {
+      color: #0e0d0c;
+    }
+
+    .menu-panel__wordmark-col {
+      display: flex;
+      align-items: flex-end;
+      padding: clamp(32px, 4vh, 56px) 0 clamp(40px, 5vh, 64px) clamp(24px, 2.5vw, 40px);
+      flex-shrink: 0;
+    }
+
+    .menu-panel__wordmark {
+      writing-mode: vertical-lr;
+      transform: rotate(180deg);
+      font-family: 'Jost', sans-serif;
+      font-weight: 200;
+      font-size: 15px;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: rgba(245, 239, 230, 0.32);
+      white-space: nowrap;
+    }
+
+    .menu-panel__nav {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: clamp(22vh, 28vh, 34vh) clamp(48px, 5vw, 80px) clamp(72px, 10vh, 120px) clamp(32px, 3vw, 52px);
+      gap: clamp(18px, 2.8vh, 32px);
+    }
+
+    .menu-panel__label {
+      font-family: 'Jost', sans-serif;
+      font-weight: 200;
+      font-size: 9px;
+      letter-spacing: 0.34em;
+      text-transform: uppercase;
+      color: rgba(245, 239, 230, 0.32);
+      margin-bottom: clamp(10px, 1.5vh, 18px);
+    }
+
+    .menu-panel__link {
+      font-family: 'EB Garamond', serif;
+      font-weight: 400;
+      font-style: italic;
+      font-size: clamp(28px, 3.5vw, 50px);
+      letter-spacing: 0.01em;
+      line-height: 1.10;
+      color: rgba(245, 239, 230, 0.82);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .menu-panel__link:hover {
+      color: var(--accent);
+    }
+
+    /* ── Mobile ───────────────────────────────────────── */
+    @media (max-width: 767px) {
+      .nav { padding: 0 24px; }
+      .site-footer__row { flex-direction: column; align-items: flex-start; gap: clamp(16px, 2vh, 24px); }
+    }
+
+  
+    /* ── Page transitions ───────────────────────────── */
+    @keyframes page-in {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    body { animation: page-in 0.5s ease forwards; }
+    body.is-leaving { opacity: 0; transition: opacity 0.35s ease; }
+
+  </style>
+</head>
+<body>
+
+  <div id="menu-overlay" class="menu-overlay"></div>
+
+  <div id="menu-panel" class="menu-panel" role="dialog" aria-modal="true" aria-label="Navigation">
+    <button class="menu-panel__close" id="menu-close" aria-label="Close navigation">Close</button>
+    <div class="menu-panel__wordmark-col">
+      <span class="menu-panel__wordmark">Didem Kanteper</span>
+    </div>
+    <nav class="menu-panel__nav" aria-label="Main navigation">
+      <span class="menu-panel__label">Explore</span>
+      <a href="hero-comparison.html" class="menu-panel__link">Home</a>
+      <a href="story-artist.html" class="menu-panel__link">The Story Artist</a>
+      <a href="weddings.html" class="menu-panel__link">Weddings</a>
+      <a href="highlights.html" class="menu-panel__link">Highlights</a>
+      <a href="contact.html" class="menu-panel__link">Contact</a>
+    </nav>
+  </div>
+
+  <nav class="nav" role="navigation">
+    <div class="nav__controls">
+      <a href="contact.html" class="nav__contact">Contact</a>
+      <button class="nav__menu-btn" id="menu-toggle" aria-label="Open navigation" aria-expanded="false">Menu</button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="story-hero">
+    <img src="hero/DSC05433.jpg" alt="Highlights — Didem Kanteper" loading="eager">
+    <div class="story-hero__content">
+      <p class="story-hero__label">Didem Kanteper</p>
+      <h1 class="story-hero__headline">Highlights</h1>
+      <div class="story-hero__divider"></div>
+      <p class="story-hero__body">Ausgewählte Augenblicke aus echten Hochzeiten &mdash; leise Details, große Emotionen und Bilder, die bewahren, wie sich ein Tag angefühlt hat.</p>
+    </div>
+    <div class="story-hero__scroll">
+      <div class="story-hero__scroll-line"></div>
+      <span class="story-hero__scroll-text">Scroll</span>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="gallery">
+    <div class="gallery-grid">
+      <!-- Row 1: B&W · color · B&W -->
+      <div><img src="Website2gallery/DSC01075.jpg" alt="" loading="lazy"></div>
+      <div><img src="Website2gallery/DSC04893.jpg" alt="" loading="lazy"></div>
+      <div><img src="Website2gallery/DSC00303.jpg" alt="" loading="lazy"></div>
+
+      <!-- Row 2: B&W · color · B&W -->
+      <div><img src="Website2gallery/DSC00848.jpg" alt="" loading="lazy"></div>
+      <div><img src="Website2gallery/DSC05590.jpg" alt="" loading="lazy"></div>
+      <div><img src="Website2gallery/DSC00392.jpg" alt="" loading="lazy"></div>
+
+      <!-- Row 3: B&W · color · B&W -->
+      <div><img src="Website2gallery/DSC01798.jpg" alt="" loading="lazy"></div>
+      <div><img src="Website2gallery/DSC01605.jpg" alt="" loading="lazy"></div>
+      <div><img src="Website2gallery/DSC01775.jpg" alt="" loading="lazy"></div>
+
+      <!-- Row 4: B&W · color · B&W -->
+      <div><img src="Website2gallery/DSC05121.jpg" alt="" loading="lazy"></div>
+      <div><img src="Website2gallery/DSC01691-2.jpg" alt="" loading="lazy"></div>
+      <div><img src="Website2gallery/DSC01461.jpg" alt="" loading="lazy"></div>
+
+      <!-- Row 5: B&W · color · B&W -->
+      <div><img src="Website2gallery/DSC06067 (1).jpg" alt="" loading="lazy"></div>
+      <div><img src="Website2gallery/DSC00394 (1).jpg" alt="" loading="lazy"></div>
+      <div><img src="Website2gallery/DSC05125 (2).jpg" alt="" loading="lazy"></div>
+
+      <!-- Closing -->
+      <div><img src="Website2gallery/DSC08223.jpg" alt="" loading="lazy"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="site-footer__divider"></div>
+    <div class="site-footer__row">
+      <div class="site-footer__links">
+        <a href="contact.html" class="site-footer__link">Kontakt</a>
+        <a href="https://www.instagram.com/didemkantepergraphy/" target="_blank" rel="noopener" class="site-footer__link">Instagram</a>
+        <a href="impressum.html" class="site-footer__link">Impressum</a>
+        <a href="datenschutz.html" class="site-footer__link">Datenschutz</a>
+      </div>
+      <span class="site-footer__copy">&copy; 2026 Didem Kanteper</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var toggle  = document.getElementById('menu-toggle');
+      var panel   = document.getElementById('menu-panel');
+      var overlay = document.getElementById('menu-overlay');
+      var close   = document.getElementById('menu-close');
+
+      function openMenu() {
+        panel.classList.add('is-open');
+        overlay.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+        toggle.setAttribute('aria-expanded', 'true');
+      }
+
+      function closeMenu() {
+        panel.classList.add('is-closing');
+        overlay.classList.remove('is-open');
+        document.body.style.overflow = '';
+        toggle.setAttribute('aria-expanded', 'false');
+        panel.addEventListener('transitionend', function onEnd(e) {
+          if (e.propertyName !== 'transform') return;
+          panel.classList.remove('is-open', 'is-closing');
+          panel.removeEventListener('transitionend', onEnd);
+        });
+      }
+
+      toggle.addEventListener('click', function () {
+        panel.classList.contains('is-open') ? closeMenu() : openMenu();
+      });
+
+      overlay.addEventListener('click', closeMenu);
+      close.addEventListener('click', closeMenu);
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeMenu();
+      });
+    })();
+  </script>
+
+  <script>
+    document.addEventListener('click', function(e) {
+      var link = e.target.closest('a[href]');
+      if (!link) return;
+      var href = link.getAttribute('href');
+      if (!href || href.charAt(0) === '#' || href.indexOf('http') === 0 || href.indexOf('mailto:') === 0 || href.indexOf('tel:') === 0) return;
+      e.preventDefault();
+      document.body.classList.add('is-leaving');
+      setTimeout(function() { window.location.href = href; }, 350);
+    });
+  </script>
+</body>
+</html>

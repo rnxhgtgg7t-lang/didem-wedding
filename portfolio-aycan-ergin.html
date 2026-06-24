@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aycan &amp; Ergin — Didem Kanteper</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=EB+Garamond:ital,wght@0,400;1,400&family=Jost:ital,wght@0,200;0,300;0,400&family=Pinyon+Script&display=swap" rel="stylesheet">
+  <style>
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --paper:  #F5EFE6;
+      --ink:    #1C1714;
+      --accent: #9A8067;
+      --canvas: #262D25;
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; }
+
+    /* ── Hero ─────────────────────────────────────────── */
+    .story-hero {
+      height: 100vh;
+      background: var(--canvas);
+      overflow: hidden;
+    }
+
+    .story-hero img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 44%;
+    }
+
+    /* ── Editorial Intro ──────────────────────────────── */
+    .story-intro {
+      background: var(--paper);
+      text-align: center;
+      padding: clamp(44px, 6.5vh, 76px) clamp(24px, 5vw, 80px) clamp(34px, 5vh, 54px);
+    }
+
+    .story-intro__label {
+      font-family: 'Jost', sans-serif;
+      font-weight: 200;
+      font-size: 9px;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: rgba(28, 23, 20, 0.40);
+      margin-bottom: clamp(20px, 2.8vh, 30px);
+    }
+
+    .story-intro__headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(34px, 4.8vw, 66px);
+      line-height: 1.05;
+      letter-spacing: 0.02em;
+      color: var(--ink);
+    }
+
+    .story-intro__divider {
+      width: 30px;
+      height: 1px;
+      background: var(--accent);
+      opacity: 0.55;
+      margin: clamp(18px, 2.4vh, 26px) auto;
+    }
+
+    .story-intro__subline {
+      font-family: 'Jost', sans-serif;
+      font-weight: 200;
+      font-size: 10px;
+      letter-spacing: 0.30em;
+      text-transform: uppercase;
+      color: rgba(28, 23, 20, 0.46);
+    }
+
+    .story-intro__tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(16px, 1.8vw, 24px);
+      letter-spacing: 0.01em;
+      color: rgba(28, 23, 20, 0.58);
+      margin-top: clamp(6px, 0.8vh, 10px);
+    }
+
+    .story-intro__body {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 13px;
+      line-height: 1.90;
+      letter-spacing: 0.015em;
+      color: rgba(28, 23, 20, 0.62);
+      max-width: 520px;
+      margin: clamp(28px, 3.5vh, 42px) auto 0;
+      text-align: center;
+    }
+
+    .story-intro__body p + p { margin-top: 1.8em; }
+
+    /* ── Gallery ──────────────────────────────────────── */
+    .gallery {
+      background: var(--paper);
+      padding: clamp(48px, 7vh, 80px) 0 clamp(80px, 11vh, 130px);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(8px, 1vw, 14px);
+      padding: 0 clamp(24px, 4vw, 80px);
+    }
+
+    .gallery-grid img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 2/3;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    @media (max-width: 767px) {
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ── Testimonial ──────────────────────────────────── */
+    .story-testimonial {
+      background: var(--canvas);
+      padding: clamp(90px, 13vh, 150px) clamp(40px, 7vw, 120px) clamp(80px, 11vh, 120px);
+      text-align: center;
+    }
+
+    .story-testimonial__label {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(18px, 1.8vw, 24px);
+      letter-spacing: 0.04em;
+      text-transform: none;
+      color: rgba(245, 239, 230, 0.52);
+      margin-bottom: clamp(14px, 1.8vh, 20px);
+    }
+
+    .story-testimonial__hairline {
+      width: 30px;
+      height: 1px;
+      background: var(--accent);
+      opacity: 0.48;
+      margin: 0 auto clamp(40px, 5.5vh, 60px);
+    }
+
+    .story-testimonial__quote {
+      max-width: 620px;
+      margin: 0 auto;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(14px, 1.55vw, 20px);
+      line-height: 1.75;
+      color: rgba(245, 239, 230, 0.80);
+      text-align: left;
+    }
+
+    .story-testimonial__quote p + p { margin-top: 1.5em; }
+
+    .story-testimonial__author {
+      margin-top: clamp(30px, 4vh, 48px);
+      font-family: 'Pinyon Script', cursive;
+      font-size: 30px;
+      color: rgba(245, 239, 230, 0.52);
+    }
+
+    /* ── Footer ───────────────────────────────────────── */
+    .site-footer {
+      background: #262D25;
+      padding: clamp(52px, 7vh, 80px) clamp(40px, 7vw, 120px) clamp(36px, 4.5vh, 52px);
+    }
+
+    .footer-statement {
+      text-align: center;
+      font-family: 'EB Garamond', serif;
+      font-weight: 400;
+      font-style: italic;
+      font-size: clamp(18px, 2.2vw, 34px);
+      color: rgba(245, 239, 230, 0.82);
+      letter-spacing: 0.01em;
+      word-spacing: -0.06em;
+      line-height: 1.2;
+      margin: 0 0 clamp(52px, 7vh, 76px);
+      white-space: nowrap;
+    }
+
+    .footer-dot {
+      color: var(--accent);
+      font-size: 1.35em;
+      line-height: 1;
+      vertical-align: baseline;
+    }
+
+    .site-footer__divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(245, 239, 230, 0.35);
+      margin-bottom: clamp(8px, 1vh, 12px);
+    }
+
+    .site-footer__row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .site-footer__links {
+      display: flex;
+      gap: clamp(20px, 2.5vw, 36px);
+    }
+
+    .site-footer__link {
+      font-family: 'Jost', sans-serif;
+      font-weight: 200;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(245, 239, 230, 0.92);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .site-footer__link:hover { color: var(--accent); }
+
+    .site-footer__copy {
+      font-family: 'Pinyon Script', cursive;
+      font-weight: 400;
+      font-size: 20px;
+      letter-spacing: 0;
+      color: rgba(245, 239, 230, 0.55);
+    }
+
+    /* ── Nav ─────────────────────────────────────────── */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 56px;
+      height: 72px;
+    }
+
+    .nav__controls {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      margin-left: auto;
+    }
+
+    .nav__contact,
+    .nav__menu-btn {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 10px;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: #ffffff;
+      text-decoration: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: color 0.3s ease;
+    }
+
+    .nav__contact:hover,
+    .nav__menu-btn:hover {
+      color: rgba(245, 239, 230, 0.95);
+    }
+
+    /* ── Menu overlay ─────────────────────────────────── */
+    .menu-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.52);
+      z-index: 39;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.45s ease;
+    }
+
+    .menu-overlay.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* ── Menu panel ───────────────────────────────────── */
+    .menu-panel {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      background: #262D25;
+      z-index: 40;
+      display: flex;
+      flex-direction: row;
+      transform: translateY(-100%);
+      transition: transform 0.58s cubic-bezier(0.77, 0, 0.18, 1);
+    }
+
+    .menu-panel.is-open {
+      transform: translateY(0);
+    }
+
+    .menu-panel::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: clamp(64px, 10vh, 96px);
+      background: var(--paper);
+      pointer-events: none;
+    }
+
+    .menu-panel.is-closing {
+      transform: translateY(100%);
+    }
+
+    .menu-panel::after {
+      content: '';
+      position: absolute;
+      top: clamp(32px, 8vh, 64px);
+      left: 67%;
+      width: 1px;
+      height: 60vh;
+      background: rgba(245, 239, 230, 0.40);
+      transform: scaleY(0);
+      transform-origin: top center;
+      transition: transform 1.10s cubic-bezier(0.25, 0, 0.10, 1) 0.40s;
+      pointer-events: none;
+    }
+
+    .menu-panel.is-open::after {
+      transform: scaleY(1);
+    }
+
+    .menu-panel.is-closing::after {
+      transition: none;
+      transform: scaleY(0);
+    }
+
+    .menu-panel__close {
+      position: absolute;
+      top: clamp(22px, 2.8vh, 32px);
+      right: clamp(32px, 3.5vw, 56px);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 12px;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: #9A8067;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: color 0.25s ease;
+    }
+
+    .menu-panel__close:hover {
+      color: #0e0d0c;
+    }
+
+    .menu-panel__wordmark-col {
+      display: flex;
+      align-items: flex-end;
+      padding: clamp(32px, 4vh, 56px) 0 clamp(40px, 5vh, 64px) clamp(24px, 2.5vw, 40px);
+      flex-shrink: 0;
+    }
+
+    .menu-panel__wordmark {
+      writing-mode: vertical-lr;
+      transform: rotate(180deg);
+      font-family: 'Jost', sans-serif;
+      font-weight: 200;
+      font-size: 15px;
+      letter-spacing: 0.38em;
+      text-transform: uppercase;
+      color: rgba(245, 239, 230, 0.32);
+      white-space: nowrap;
+    }
+
+    .menu-panel__nav {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: clamp(22vh, 28vh, 34vh) clamp(48px, 5vw, 80px) clamp(72px, 10vh, 120px) clamp(32px, 3vw, 52px);
+      gap: clamp(18px, 2.8vh, 32px);
+    }
+
+    .menu-panel__label {
+      font-family: 'Jost', sans-serif;
+      font-weight: 200;
+      font-size: 9px;
+      letter-spacing: 0.34em;
+      text-transform: uppercase;
+      color: rgba(245, 239, 230, 0.32);
+      margin-bottom: clamp(10px, 1.5vh, 18px);
+    }
+
+    .menu-panel__link {
+      font-family: 'EB Garamond', serif;
+      font-weight: 400;
+      font-style: italic;
+      font-size: clamp(28px, 3.5vw, 50px);
+      letter-spacing: 0.01em;
+      line-height: 1.10;
+      color: rgba(245, 239, 230, 0.82);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .menu-panel__link:hover {
+      color: var(--accent);
+    }
+
+    /* ── Mobile ───────────────────────────────────────── */
+    @media (max-width: 767px) {
+      .nav { padding: 0 24px; }
+      .footer-statement { white-space: normal; font-size: clamp(18px, 5vw, 26px); text-align: left; }
+      .site-footer__row { flex-direction: column; align-items: flex-start; gap: clamp(16px, 2vh, 24px); }
+    }
+
+  
+    /* ── Page transitions ───────────────────────────── */
+    @keyframes page-in {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+    body { animation: page-in 0.5s ease forwards; }
+    body.is-leaving { opacity: 0; transition: opacity 0.35s ease; }
+
+  </style>
+</head>
+<body>
+
+  <div id="menu-overlay" class="menu-overlay"></div>
+
+  <div id="menu-panel" class="menu-panel" role="dialog" aria-modal="true" aria-label="Navigation">
+    <button class="menu-panel__close" id="menu-close" aria-label="Close navigation">Close</button>
+    <div class="menu-panel__wordmark-col">
+      <span class="menu-panel__wordmark">Didem Kanteper</span>
+    </div>
+    <nav class="menu-panel__nav" aria-label="Main navigation">
+      <span class="menu-panel__label">Explore</span>
+      <a href="hero-comparison.html" class="menu-panel__link">Home</a>
+      <a href="story-artist.html" class="menu-panel__link">The Story Artist</a>
+      <a href="weddings.html" class="menu-panel__link">Weddings</a>
+      <a href="highlights.html" class="menu-panel__link">Highlights</a>
+      <a href="contact.html" class="menu-panel__link">Contact</a>
+    </nav>
+  </div>
+
+  <nav class="nav" role="navigation">
+    <div class="nav__controls">
+      <a href="contact.html" class="nav__contact">Contact</a>
+      <button class="nav__menu-btn" id="menu-toggle" aria-label="Open navigation" aria-expanded="false">Menu</button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="story-hero">
+    <img
+      src="Aycan & Ergin/DSC01491.jpg"
+      alt="Aycan &amp; Ergin"
+      loading="eager"
+    >
+  </section>
+
+  <!-- Editorial intro -->
+  <section class="story-intro">
+    <p class="story-intro__label">Vienna, Austria &mdash; 2025</p>
+    <h1 class="story-intro__headline">Grace in Every Detail</h1>
+    <div class="story-intro__divider"></div>
+    <p class="story-intro__tagline">&mdash; where elegance feels effortless.</p>
+    <div class="story-intro__body">
+      <p>Von den ersten ruhigen Momenten bis zu den großen Emotionen des Tages war jede Begegnung von Wärme, Stil und Verbundenheit geprägt. Eine Geschichte voller Schönheit, die nicht inszeniert wirkte, sondern ganz natürlich entstand.</p>
+      <p>Eine Hochzeit, die zeitlos, elegant und voller Gefühl in Erinnerung bleibt.</p>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="gallery">
+    <div class="gallery-grid">
+
+      <!-- Row 1: B&W · color · B&W — Getting ready details -->
+      <div><img src="Aycan & Ergin/DSC01769.jpg" alt="" loading="lazy"></div>
+      <div><img src="Aycan & Ergin/DSC00823.jpg" alt="" loading="lazy"></div>
+      <div><img src="Aycan & Ergin/DSC00176.jpg" alt="" loading="lazy"></div>
+
+      <!-- Row 2: B&W · color · B&W — Getting ready portraits -->
+      <div><img src="Aycan & Ergin/DSC01710.jpg" alt="" loading="lazy"></div>
+      <div><img src="Aycan & Ergin/DSC01081.jpg" alt="" loading="lazy"></div>
+      <div><img src="Aycan & Ergin/DSC01071.jpg" alt="" loading="lazy"></div>
+
+      <!-- Row 3: B&W · color · B&W — Ceremony & emotion -->
+      <div><img src="Aycan & Ergin/DSC01096.jpg" alt="" loading="lazy"></div>
+      <div><img src="Aycan & Ergin/DSC00394.jpg" alt="" loading="lazy"></div>
+      <div><img src="Aycan & Ergin/DSC01635.jpg" alt="" loading="lazy"></div>
+
+      <!-- Row 4: B&W · color · B&W — Dance & closing -->
+      <div><img src="Aycan & Ergin/DSC03613.jpg" alt="" loading="lazy"></div>
+      <div><img src="Aycan & Ergin/DSC01672.jpg" alt="" loading="lazy"></div>
+      <div><img src="Aycan & Ergin/DSC03739 (1).jpg" alt="" loading="lazy"></div>
+
+    </div>
+  </section>
+
+  <!-- Testimonial -->
+  <section class="story-testimonial">
+    <p class="story-testimonial__label">love letters</p>
+    <div class="story-testimonial__hairline"></div>
+    <blockquote class="story-testimonial__quote">
+      <p>Liebste Didem&#128149;,</p>
+      <p>wir sind unendlich dankbar, dass du uns an unserem Hochzeitstag begleitet hast. Schon vom ersten Moment an hatten wir das Gefühl, nicht einfach &bdquo;nur&ldquo; eine Fotografin an unserer Seite zu haben, sondern einen Menschen, der mit ganz viel Herz, Ruhe und Feingefühl Teil dieses besonderen Tages geworden ist. &#10024;</p>
+      <p>Du hast es geschafft, all die großen Emotionen und kleinen, kostbaren Augenblicke so authentisch und ästhetisch festzuhalten, dass wir beim Anschauen der Bilder jedes Mal wieder mitten in diesem Tag sind. Genau diese natürliche, elegante und emotionale Bildsprache haben wir uns immer gewünscht &ndash; und du hast unsere Vorstellungen sogar noch übertroffen.</p>
+      <p>Besonders beeindruckt hat uns, wie aufmerksam, warmherzig und angenehm du den ganzen Tag über warst. Du hattest immer ein Gespür für die richtigen Momente, ohne dabei jemals aufdringlich zu sein. Mit deiner ruhigen Art hast du uns so viel Sicherheit gegeben und dafür gesorgt, dass wir uns vollkommen wohlgefühlt haben.</p>
+      <p>Wir hätten uns wirklich keine bessere fotografische Begleitung für unsere Hochzeit vorstellen können. Danke, dass du unsere Erinnerungen so wunderschön für die Ewigkeit festgehalten hast. Wir werden diese Bilder und die Erfahrung mit dir für immer in unserem Herzen tragen.</p>
+      <p>Von Herzen: Danke &#10084;&#65039;</p>
+    </blockquote>
+    <p class="story-testimonial__author">Aycan &amp; Ergin</p>
+  </section>
+
+  <!-- Footer — exact match of main site -->
+  <footer class="site-footer">
+    <div class="site-footer__divider"></div>
+    <div class="site-footer__row">
+      <div class="site-footer__links">
+        <a href="contact.html" class="site-footer__link">Kontakt</a>
+        <a href="https://www.instagram.com/didemkantepergraphy/" target="_blank" rel="noopener" class="site-footer__link">Instagram</a>
+        <a href="impressum.html" class="site-footer__link">Impressum</a>
+        <a href="datenschutz.html" class="site-footer__link">Datenschutz</a>
+      </div>
+      <span class="site-footer__copy">&copy; 2026 Didem Kanteper</span>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var toggle  = document.getElementById('menu-toggle');
+      var panel   = document.getElementById('menu-panel');
+      var overlay = document.getElementById('menu-overlay');
+      var close   = document.getElementById('menu-close');
+
+      function openMenu() {
+        panel.classList.add('is-open');
+        overlay.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+        toggle.setAttribute('aria-expanded', 'true');
+      }
+
+      function closeMenu() {
+        panel.classList.add('is-closing');
+        overlay.classList.remove('is-open');
+        document.body.style.overflow = '';
+        toggle.setAttribute('aria-expanded', 'false');
+        panel.addEventListener('transitionend', function onEnd(e) {
+          if (e.propertyName !== 'transform') return;
+          panel.classList.remove('is-open', 'is-closing');
+          panel.removeEventListener('transitionend', onEnd);
+        });
+      }
+
+      toggle.addEventListener('click', function () {
+        panel.classList.contains('is-open') ? closeMenu() : openMenu();
+      });
+
+      overlay.addEventListener('click', closeMenu);
+      close.addEventListener('click', closeMenu);
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeMenu();
+      });
+    })();
+  </script>
+
+  <script>
+    document.addEventListener('click', function(e) {
+      var link = e.target.closest('a[href]');
+      if (!link) return;
+      var href = link.getAttribute('href');
+      if (!href || href.charAt(0) === '#' || href.indexOf('http') === 0 || href.indexOf('mailto:') === 0 || href.indexOf('tel:') === 0) return;
+      e.preventDefault();
+      document.body.classList.add('is-leaving');
+      setTimeout(function() { window.location.href = href; }, 350);
+    });
+  </script>
+</body>
+</html>
