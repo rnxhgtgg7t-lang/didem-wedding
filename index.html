@@ -541,23 +541,12 @@
       top: 72px;
     }
 
-    .artist__portrait-placeholder {
+    .artist__portrait {
+      display: block;
+      width: 100%;
       aspect-ratio: 2 / 3;
-      background: rgba(255, 255, 255, 0.06);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .artist__portrait-placeholder span {
-      font-family: 'Jost', sans-serif;
-      font-weight: 200;
-      font-size: 9px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.28);
-      line-height: 2;
-      text-align: center;
+      object-fit: cover;
+      object-position: center 25%;
     }
 
     .artist__label {
@@ -2191,9 +2180,7 @@
     <div class="artist__inner">
 
       <div class="artist__portrait-wrap">
-        <div class="artist__portrait-placeholder">
-          <span>Portrait<br>Juni 2026</span>
-        </div>
+        <img class="artist__portrait" src="./about/didem-portrait.webp" alt="Didem Kanteper" loading="lazy" decoding="async">
       </div>
 
       <div class="artist__text">

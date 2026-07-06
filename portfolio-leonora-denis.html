@@ -147,6 +147,11 @@
       aspect-ratio: 16/7;
     }
 
+    /* middle photo of each triptych row rendered in black & white */
+    .g-mono img {
+      filter: grayscale(100%);
+    }
+
     @media (max-width: 767px) {
       .gallery-grid { grid-template-columns: repeat(2, 1fr); }
       .g-wide       { grid-column: span 2; }
@@ -565,11 +570,11 @@
         <img src="LEONORA AND DENIS/DSC01757.webp" alt="" loading="lazy" decoding="async">
       </div>
 
-      <!-- Three across -->
+      <!-- Three across — middle in black & white -->
       <div>
         <img src="LEONORA AND DENIS/DSC00565.webp" alt="" loading="lazy" decoding="async">
       </div>
-      <div>
+      <div class="g-mono">
         <img src="LEONORA AND DENIS/DSC00538.webp" alt="" loading="lazy" decoding="async">
       </div>
       <div>
@@ -584,11 +589,11 @@
         <img src="LEONORA AND DENIS/DSC00287.webp" alt="" loading="lazy" decoding="async">
       </div>
 
-      <!-- Three across -->
+      <!-- Three across — middle in black & white -->
       <div>
         <img src="LEONORA AND DENIS/DSC00300.webp" alt="" loading="lazy" decoding="async">
       </div>
-      <div>
+      <div class="g-mono">
         <img src="LEONORA AND DENIS/DSC01086.webp" alt="" loading="lazy" decoding="async">
       </div>
       <div>
@@ -600,11 +605,11 @@
         <img src="LEONORA AND DENIS/DSC02020.webp" alt="" loading="lazy" style="object-position: center 30%;">
       </div>
 
-      <!-- Closing three -->
+      <!-- Closing three — middle in black & white -->
       <div>
         <img src="LEONORA AND DENIS/DSC01929.webp" alt="" loading="lazy" decoding="async">
       </div>
-      <div>
+      <div class="g-mono">
         <img src="LEONORA AND DENIS/DSC00621-2.webp" alt="" loading="lazy" decoding="async">
       </div>
       <div>

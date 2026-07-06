@@ -131,6 +131,11 @@
       object-position: center top;
     }
 
+    /* middle photo of each triptych row rendered in black & white */
+    .g-mono img {
+      filter: grayscale(100%);
+    }
+
     @media (max-width: 767px) {
       .gallery-grid { grid-template-columns: repeat(2, 1fr); }
     }
@@ -530,24 +535,24 @@
   <section class="gallery">
     <div class="gallery-grid">
 
-      <!-- Row 1: B&W · color · B&W — Getting ready details -->
-      <div><img src="Aycan & Ergin/DSC01769.webp" alt="" loading="lazy" decoding="async"></div>
+      <!-- Row 1: color · B&W · B&W — Getting ready details -->
       <div><img src="Aycan & Ergin/DSC00823.webp" alt="" loading="lazy" decoding="async"></div>
+      <div class="g-mono"><img src="Aycan & Ergin/DSC01769.webp" alt="" loading="lazy" decoding="async"></div>
       <div><img src="Aycan & Ergin/DSC00176.webp" alt="" loading="lazy" decoding="async"></div>
 
-      <!-- Row 2: B&W · color · B&W — Getting ready portraits -->
-      <div><img src="Aycan & Ergin/DSC01710.webp" alt="" loading="lazy" decoding="async"></div>
+      <!-- Row 2: color · B&W · B&W — Getting ready portraits -->
       <div><img src="Aycan & Ergin/DSC01081.webp" alt="" loading="lazy" decoding="async"></div>
+      <div class="g-mono"><img src="Aycan & Ergin/DSC01710.webp" alt="" loading="lazy" decoding="async"></div>
       <div><img src="Aycan & Ergin/DSC01071.webp" alt="" loading="lazy" decoding="async"></div>
 
-      <!-- Row 3: B&W · color · B&W — Ceremony & emotion -->
-      <div><img src="Aycan & Ergin/DSC01096.webp" alt="" loading="lazy" decoding="async"></div>
+      <!-- Row 3: color · B&W · B&W — Ceremony & emotion -->
       <div><img src="Aycan & Ergin/DSC00394.webp" alt="" loading="lazy" decoding="async"></div>
+      <div class="g-mono"><img src="Aycan & Ergin/DSC01096.webp" alt="" loading="lazy" decoding="async"></div>
       <div><img src="Aycan & Ergin/DSC01635.webp" alt="" loading="lazy" decoding="async"></div>
 
-      <!-- Row 4: B&W · color · B&W — Dance & closing -->
-      <div><img src="Aycan & Ergin/DSC03613.webp" alt="" loading="lazy" decoding="async"></div>
+      <!-- Row 4: color · B&W · B&W — Dance & closing -->
       <div><img src="Aycan & Ergin/DSC01672.webp" alt="" loading="lazy" decoding="async"></div>
+      <div class="g-mono"><img src="Aycan & Ergin/DSC03613.webp" alt="" loading="lazy" decoding="async"></div>
       <div><img src="Aycan & Ergin/DSC03739 (1).webp" alt="" loading="lazy" decoding="async"></div>
 
     </div>
