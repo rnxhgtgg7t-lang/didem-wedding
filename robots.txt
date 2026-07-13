@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /hero-comparison.html
+Disallow: /hero-comparison-backup-2026-06-10.html
+Disallow: /fine-art-version.html
+Disallow: /museum-archive-version.html
+Disallow: /contact-sheet-aycan-ergin.html
+Disallow: /typography-comparison.html
+
+Sitemap: https://didemkanteper.com/sitemap.xml
