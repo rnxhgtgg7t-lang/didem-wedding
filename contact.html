@@ -279,6 +279,31 @@
     }
 
     .form-submit:hover { color: var(--accent); }
+    .form-submit:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .form-success {
+      font-family: 'EB Garamond', serif;
+      font-weight: 400;
+      font-style: italic;
+      font-size: clamp(20px, 2.2vw, 28px);
+      line-height: 1.4;
+      color: #1C1714;
+      text-align: center;
+      padding: clamp(40px, 6vh, 64px) clamp(24px, 4vw, 48px);
+    }
+
+    .form-error {
+      display: none;
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 13px;
+      letter-spacing: 0.01em;
+      color: #a8402f;
+      margin-top: 18px;
+      text-align: center;
+    }
+
+    .form-error.is-visible { display: block; }
 
     /* ── Footer ─────────────────────────────────────── */
     .site-footer {
@@ -389,7 +414,10 @@
 
     <!-- Right: form -->
     <section class="contact-form">
-      <form action="#" method="post" novalidate>
+      <form id="contact-form" action="https://formspree.io/f/xrenglvk" method="POST" novalidate>
+
+        <input type="hidden" name="_subject" value="Neue Anfrage über didemkanteper.com">
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
 
         <div class="form-field">
           <label class="form-label" for="name">Vor- und Nachname</label>
@@ -436,6 +464,7 @@
         </div>
 
         <button class="form-submit" type="submit">Anfrage Absenden</button>
+        <p class="form-error" id="form-error">Etwas ist schiefgelaufen. Bitte versucht es erneut oder schreibt direkt eine E-Mail.</p>
 
       </form>
     </section>
@@ -466,6 +495,38 @@
       document.body.classList.add('is-leaving');
       setTimeout(function() { window.location.href = href; }, 350);
     });
+  </script>
+
+  <script>
+    (function () {
+      var form = document.getElementById('contact-form');
+      if (!form) return;
+      var errorEl = document.getElementById('form-error');
+      var submitBtn = form.querySelector('.form-submit');
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        errorEl.classList.remove('is-visible');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Wird gesendet …';
+
+        fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        }).then(function (response) {
+          if (response.ok) {
+            form.parentNode.innerHTML = '<p class="form-success">Vielen Dank für eure Nachricht!<br>Ich melde mich in Kürze bei euch.</p>';
+          } else {
+            throw new Error('submit failed');
+          }
+        }).catch(function () {
+          errorEl.classList.add('is-visible');
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Anfrage Absenden';
+        });
+      });
+    })();
   </script>
 </body>
 </html>
