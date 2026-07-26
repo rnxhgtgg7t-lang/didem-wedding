@@ -467,6 +467,12 @@
 
     .site-footer__link:hover { color: var(--accent); }
 
+    .site-footer__meta {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+
     .site-footer__copy {
       font-family: 'Pinyon Script', cursive;
       font-weight: 400;
@@ -474,6 +480,20 @@
       letter-spacing: 0;
       color: rgba(245, 239, 230, 0.55);
     }
+
+    .site-footer__credit {
+      font-family: 'EB Garamond', serif;
+      font-weight: 400;
+      font-style: italic;
+      font-size: 14px;
+      letter-spacing: 0.01em;
+      color: var(--accent);
+      opacity: 0.78;
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .site-footer__credit:hover { opacity: 1; }
 
     /* ── Mobile ───────────────────────────────────────── */
     @media (max-width: 960px) {
@@ -629,7 +649,7 @@
 
         <div class="faq__block">
           <p class="faq__question">Reist du auch für Hochzeiten?</p>
-          <p class="faq__answer">Ja, sehr gerne. Hochzeiten in ganz Deutschland sowie im europäischen Ausland begleite ich regelmäßig. Reisekosten werden je nach Entfernung und Aufwand individuell besprochen.</p>
+          <p class="faq__answer">Ja, sehr gerne — ich begleite Hochzeiten in ganz Deutschland sowie im europäischen Ausland. Reisekosten werden je nach Entfernung und Aufwand individuell besprochen.</p>
         </div>
 
         <div class="faq__block">
@@ -644,12 +664,7 @@
 
         <div class="faq__block">
           <p class="faq__question">Wann erhalten wir unsere Bilder?</p>
-          <p class="faq__answer">Ihr erhaltet eure sorgfältig bearbeiteten Bilder innerhalb von vier bis sechs Wochen nach eurer Hochzeit — präsentiert in einer eleganten Online-Galerie.</p>
-        </div>
-
-        <div class="faq__block">
-          <p class="faq__question">Wie viele Bilder erhalten wir?</p>
-          <p class="faq__answer">Das hängt vom Umfang des Tages ab. Im Durchschnitt erhaltet ihr zwischen 400 und 600 sorgfältig ausgewählte und bearbeitete Bilder — Qualität über Quantität.</p>
+          <p class="faq__answer">Ihr erhaltet eure sorgfältig bearbeiteten Bilder in 8 bis 12 Wochen nach Auswahl der Bilder — präsentiert in einer eigenen Online-Galerie.</p>
         </div>
 
       </div>
@@ -667,7 +682,10 @@
         <a href="impressum.html" class="site-footer__link">Impressum</a>
         <a href="datenschutz.html" class="site-footer__link">Datenschutz</a>
       </div>
-      <span class="site-footer__copy">&copy; 2026 Didem Kanteper</span>
+      <div class="site-footer__meta">
+        <span class="site-footer__copy">&copy; 2026 Didem Kanteper</span>
+        <a href="https://www.lumora-marketing.ch" target="_blank" rel="noopener" class="site-footer__credit">Designed by Lumora</a>
+      </div>
     </div>
   </footer>
 

@@ -213,6 +213,12 @@
 
     .site-footer__link:hover { color: var(--accent); }
 
+    .site-footer__meta {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+
     .site-footer__copy {
       font-family: 'Pinyon Script', cursive;
       font-weight: 400;
@@ -220,6 +226,20 @@
       letter-spacing: 0;
       color: rgba(245, 239, 230, 0.55);
     }
+
+    .site-footer__credit {
+      font-family: 'EB Garamond', serif;
+      font-weight: 400;
+      font-style: italic;
+      font-size: 14px;
+      letter-spacing: 0.01em;
+      color: var(--accent);
+      opacity: 0.78;
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .site-footer__credit:hover { opacity: 1; }
 
     /* ── Nav ─────────────────────────────────────────── */
     .nav {
@@ -495,14 +515,14 @@
   <section class="gallery">
     <div class="gallery-grid">
       <!-- Row 1: B&W · color · B&W -->
-      <div><img src="Website2gallery/DSC01075.webp" alt="Hochzeitsfotografie – festlicher Augenblick" loading="lazy" decoding="async"></div>
+      <div><img src="Website2gallery/DSC00392.webp" alt="Hochzeitsdetail – elegante Momentaufnahme" loading="lazy" decoding="async"></div>
       <div><img src="Website2gallery/DSC04893.webp" alt="Brautpaar Portrait – emotionale Hochzeitsfotografie" loading="lazy" decoding="async"></div>
       <div><img src="Website2gallery/DSC00303.webp" alt="Hochzeitsdetail – stilvolle Aufnahme" loading="lazy" decoding="async"></div>
 
       <!-- Row 2: B&W · color · B&W -->
       <div><img src="Website2gallery/DSC00848.webp" alt="Hochzeitsfeier – herzlicher Moment" loading="lazy" decoding="async"></div>
       <div><img src="Website2gallery/DSC05590.webp" alt="Brautpaar – zeitlose Hochzeitsfotografie" loading="lazy" decoding="async"></div>
-      <div><img src="Website2gallery/DSC00392.webp" alt="Hochzeitsdetail – elegante Momentaufnahme" loading="lazy" decoding="async"></div>
+      <div><img src="Website2gallery/DSC01075.webp" alt="Hochzeitsfotografie – festlicher Augenblick" loading="lazy" decoding="async"></div>
 
       <!-- Row 3: B&W · color · B&W -->
       <div><img src="Website2gallery/DSC01798.webp" alt="Getting Ready – Hochzeitsfotografie" loading="lazy" decoding="async"></div>
@@ -534,7 +554,10 @@
         <a href="impressum.html" class="site-footer__link">Impressum</a>
         <a href="datenschutz.html" class="site-footer__link">Datenschutz</a>
       </div>
-      <span class="site-footer__copy">&copy; 2026 Didem Kanteper</span>
+      <div class="site-footer__meta">
+        <span class="site-footer__copy">&copy; 2026 Didem Kanteper</span>
+        <a href="https://www.lumora-marketing.ch" target="_blank" rel="noopener" class="site-footer__credit">Designed by Lumora</a>
+      </div>
     </div>
   </footer>
 

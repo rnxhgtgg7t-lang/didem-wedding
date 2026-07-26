@@ -472,9 +472,8 @@
     .editorial__image {
       display: block;
       width: 100%;
-      height: clamp(480px, 72vh, 820px);
-      object-fit: cover;
-      object-position: center 55%;
+      height: auto;
+      object-fit: contain;
     }
 
     .editorial__cta-wrap {
@@ -523,7 +522,7 @@
         padding-top: 48px;
       }
       .editorial__image {
-        height: max(360px, 80vw);
+        height: auto;
       }
       .editorial__headline {
         font-size: clamp(28px, 8vw, 42px);
@@ -1753,6 +1752,12 @@
 
     .site-footer__link:hover { color: var(--accent); }
 
+    .site-footer__meta {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+
     .site-footer__copy {
       font-family: 'Pinyon Script', cursive;
       font-weight: 400;
@@ -1760,6 +1765,20 @@
       letter-spacing: 0;
       color: rgba(245, 239, 230, 0.55);
     }
+
+    .site-footer__credit {
+      font-family: 'EB Garamond', serif;
+      font-weight: 400;
+      font-style: italic;
+      font-size: 14px;
+      letter-spacing: 0.01em;
+      color: var(--accent);
+      opacity: 0.78;
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .site-footer__credit:hover { opacity: 1; }
 
     @media (max-width: 767px) {
       .footer-statement { white-space: normal; font-size: clamp(18px, 5vw, 26px); text-align: left; }
@@ -2161,7 +2180,6 @@
           aria-hidden="true"
           loading="lazy"
           decoding="async"
-          style="object-position: center 20%;"
         >
       </div>
 
@@ -2333,7 +2351,7 @@
     <div class="testimonial-bridge__inner">
       <div class="moment-chapter__testimonial">
         <blockquote class="moment-chapter__quote">
-          <p>„Liebste Didem,</p>
+          <p>„Liebe Didem,</p>
           <p>wir sind unendlich dankbar, dass du uns an unserem Hochzeitstag begleitet hast. Schon vom ersten Moment an hatten wir das Gefühl, nicht einfach nur eine Fotografin an unserer Seite zu haben, sondern einen Menschen, der mit ganz viel Herz, Ruhe und Feingefühl Teil dieses besonderen Tages geworden ist.</p>
           <p>Du hast es geschafft, all die großen Emotionen und kleinen, kostbaren Augenblicke so authentisch und ästhetisch festzuhalten, dass wir beim Anschauen der Bilder jedes Mal wieder mitten in diesem Tag sind."</p>
         </blockquote>
@@ -2355,7 +2373,10 @@
         <a href="impressum.html" class="site-footer__link">Impressum</a>
         <a href="datenschutz.html" class="site-footer__link">Datenschutz</a>
       </div>
-      <span class="site-footer__copy">&copy; 2026 Didem Kanteper</span>
+      <div class="site-footer__meta">
+        <span class="site-footer__copy">&copy; 2026 Didem Kanteper</span>
+        <a href="https://www.lumora-marketing.ch" target="_blank" rel="noopener" class="site-footer__credit">Designed by Lumora</a>
+      </div>
     </div>
 
   </footer>

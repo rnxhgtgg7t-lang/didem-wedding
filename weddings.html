@@ -363,6 +363,12 @@
 
     .site-footer__link:hover { color: var(--accent); }
 
+    .site-footer__meta {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+
     .site-footer__copy {
       font-family: 'Pinyon Script', cursive;
       font-weight: 400;
@@ -370,6 +376,20 @@
       letter-spacing: 0;
       color: rgba(245, 239, 230, 0.55);
     }
+
+    .site-footer__credit {
+      font-family: 'EB Garamond', serif;
+      font-weight: 400;
+      font-style: italic;
+      font-size: 14px;
+      letter-spacing: 0.01em;
+      color: var(--accent);
+      opacity: 0.78;
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .site-footer__credit:hover { opacity: 1; }
 
     /* ── Nav ─────────────────────────────────────────── */
     .nav {
@@ -655,7 +675,7 @@
       </div>
 
       <div class="wedding-section__image">
-        <img src="melis und matthias/didemkantepergraphy_MELIS_AND_MATTHIAS/A7400743.webp" alt="Melis &amp; Matthias" loading="lazy" decoding="async">
+        <img src="melis und matthias/didemkantepergraphy_MELIS_AND_MATTHIAS/A7400743.webp" alt="Melis &amp; Matthias" loading="lazy" decoding="async" style="object-position: center 65%;">
       </div>
 
     </div>
@@ -666,7 +686,7 @@
     <div class="wedding-section__inner">
 
       <div class="wedding-section__image">
-        <img src="LEONORA AND DENIS/DSC01757.webp" alt="Leonora &amp; Denis" loading="lazy" decoding="async">
+        <img src="LEONORA AND DENIS/DSC02020.webp" alt="Leonora &amp; Denis" loading="lazy" decoding="async" style="height: auto; object-fit: contain;">
       </div>
 
       <div class="wedding-section__text">
@@ -717,7 +737,10 @@
         <a href="impressum.html" class="site-footer__link">Impressum</a>
         <a href="datenschutz.html" class="site-footer__link">Datenschutz</a>
       </div>
-      <span class="site-footer__copy">&copy; 2026 Didem Kanteper</span>
+      <div class="site-footer__meta">
+        <span class="site-footer__copy">&copy; 2026 Didem Kanteper</span>
+        <a href="https://www.lumora-marketing.ch" target="_blank" rel="noopener" class="site-footer__credit">Designed by Lumora</a>
+      </div>
     </div>
   </footer>
 

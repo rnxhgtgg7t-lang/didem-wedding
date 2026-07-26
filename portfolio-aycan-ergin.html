@@ -52,7 +52,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center 44%;
+      object-position: 72% 44%;
     }
 
     /* ── Editorial Intro ──────────────────────────────── */
@@ -142,11 +142,6 @@
       aspect-ratio: 2/3;
       object-fit: cover;
       object-position: center top;
-    }
-
-    /* middle photo of each triptych row rendered in black & white */
-    .g-mono img {
-      filter: grayscale(100%);
     }
 
     @media (max-width: 767px) {
@@ -258,6 +253,12 @@
 
     .site-footer__link:hover { color: var(--accent); }
 
+    .site-footer__meta {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+
     .site-footer__copy {
       font-family: 'Pinyon Script', cursive;
       font-weight: 400;
@@ -265,6 +266,20 @@
       letter-spacing: 0;
       color: rgba(245, 239, 230, 0.55);
     }
+
+    .site-footer__credit {
+      font-family: 'EB Garamond', serif;
+      font-weight: 400;
+      font-style: italic;
+      font-size: 14px;
+      letter-spacing: 0.01em;
+      color: var(--accent);
+      opacity: 0.78;
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .site-footer__credit:hover { opacity: 1; }
 
     /* ── Nav ─────────────────────────────────────────── */
     .nav {
@@ -548,24 +563,24 @@
   <section class="gallery">
     <div class="gallery-grid">
 
-      <!-- Row 1: color · B&W · B&W — Getting ready details -->
+      <!-- Row 1: mixed -->
+      <div><img src="Aycan & Ergin/DSC01769.webp" alt="Hochzeit Aycan und Ergin – Getting Ready Detail" loading="lazy" decoding="async"></div>
       <div><img src="Aycan & Ergin/DSC00823.webp" alt="Aycan und Ergin – Brautpaar Portrait Schlossresidenz Garbsen" loading="lazy" decoding="async"></div>
-      <div class="g-mono"><img src="Aycan & Ergin/DSC01769.webp" alt="Hochzeit Aycan und Ergin – Getting Ready Detail" loading="lazy" decoding="async"></div>
       <div><img src="Aycan & Ergin/DSC00176.webp" alt="Hochzeitsdetail – Schlossresidenz Garbsen" loading="lazy" decoding="async"></div>
 
-      <!-- Row 2: color · B&W · B&W — Getting ready portraits -->
+      <!-- Row 2: mixed -->
       <div><img src="Aycan & Ergin/DSC01081.webp" alt="Brautpaar Aycan und Ergin – emotionaler Moment" loading="lazy" decoding="async"></div>
-      <div class="g-mono"><img src="Aycan & Ergin/DSC01710.webp" alt="Getting Ready – Hochzeit Aycan und Ergin" loading="lazy" decoding="async"></div>
+      <div><img src="Aycan & Ergin/DSC01710.webp" alt="Getting Ready – Hochzeit Aycan und Ergin" loading="lazy" decoding="async"></div>
       <div><img src="Aycan & Ergin/DSC01071.webp" alt="Hochzeitszeremonie – Schlossresidenz Garbsen" loading="lazy" decoding="async"></div>
 
-      <!-- Row 3: color · B&W · B&W — Ceremony & emotion -->
+      <!-- Row 3: mixed -->
       <div><img src="Aycan & Ergin/DSC00394.webp" alt="Brautpaar Portrait – Hochzeit Aycan und Ergin" loading="lazy" decoding="async"></div>
-      <div class="g-mono"><img src="Aycan & Ergin/DSC01096.webp" alt="Hochzeitsfeier – festlicher Moment" loading="lazy" decoding="async"></div>
+      <div><img src="Aycan & Ergin/DSC01096.webp" alt="Hochzeitsfeier – festlicher Moment" loading="lazy" decoding="async"></div>
       <div><img src="Aycan & Ergin/DSC01635.webp" alt="Hochzeitsdetail – stilvolle Aufnahme" loading="lazy" decoding="async"></div>
 
-      <!-- Row 4: color · B&W · B&W — Dance & closing -->
+      <!-- Row 4: mixed -->
       <div><img src="Aycan & Ergin/DSC01672.webp" alt="Brautpaar – herzlicher Augenblick" loading="lazy" decoding="async"></div>
-      <div class="g-mono"><img src="Aycan & Ergin/DSC03613.webp" alt="Hochzeitsfeier – Tanz und Emotion" loading="lazy" decoding="async"></div>
+      <div><img src="Aycan & Ergin/DSC03613.webp" alt="Hochzeitsfeier – Tanz und Emotion" loading="lazy" decoding="async"></div>
       <div><img src="Aycan & Ergin/DSC03739 (1).webp" alt="Hochzeit Aycan und Ergin – abschließender Moment" loading="lazy" decoding="async"></div>
 
     </div>
@@ -576,7 +591,7 @@
     <p class="story-testimonial__label">love letters</p>
     <div class="story-testimonial__hairline"></div>
     <blockquote class="story-testimonial__quote">
-      <p>Liebste Didem&#128149;,</p>
+      <p>Liebe Didem&#128149;,</p>
       <p>wir sind unendlich dankbar, dass du uns an unserem Hochzeitstag begleitet hast. Schon vom ersten Moment an hatten wir das Gefühl, nicht einfach &bdquo;nur&ldquo; eine Fotografin an unserer Seite zu haben, sondern einen Menschen, der mit ganz viel Herz, Ruhe und Feingefühl Teil dieses besonderen Tages geworden ist. &#10024;</p>
       <p>Du hast es geschafft, all die großen Emotionen und kleinen, kostbaren Augenblicke so authentisch und ästhetisch festzuhalten, dass wir beim Anschauen der Bilder jedes Mal wieder mitten in diesem Tag sind. Genau diese natürliche, elegante und emotionale Bildsprache haben wir uns immer gewünscht &ndash; und du hast unsere Vorstellungen sogar noch übertroffen.</p>
       <p>Besonders beeindruckt hat uns, wie aufmerksam, warmherzig und angenehm du den ganzen Tag über warst. Du hattest immer ein Gespür für die richtigen Momente, ohne dabei jemals aufdringlich zu sein. Mit deiner ruhigen Art hast du uns so viel Sicherheit gegeben und dafür gesorgt, dass wir uns vollkommen wohlgefühlt haben.</p>
@@ -596,7 +611,10 @@
         <a href="impressum.html" class="site-footer__link">Impressum</a>
         <a href="datenschutz.html" class="site-footer__link">Datenschutz</a>
       </div>
-      <span class="site-footer__copy">&copy; 2026 Didem Kanteper</span>
+      <div class="site-footer__meta">
+        <span class="site-footer__copy">&copy; 2026 Didem Kanteper</span>
+        <a href="https://www.lumora-marketing.ch" target="_blank" rel="noopener" class="site-footer__credit">Designed by Lumora</a>
+      </div>
     </div>
   </footer>
 
